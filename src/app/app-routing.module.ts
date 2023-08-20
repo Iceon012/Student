@@ -7,6 +7,8 @@ import { PaymentComponent } from './payment/payment.component';
 import { ProofComponent } from './proof/proof.component';
 import { HomeComponent } from './home/home.component';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
+import { EnrollmentDataComponent } from './enrollment-data/enrollment-data.component';
+import { TuitionFeesComponent } from './tuition-fees/tuition-fees.component';
 
 const routes: Routes = [
   {path: 'enrollment', component:EnrollmentComponent},
@@ -15,6 +17,8 @@ const routes: Routes = [
   {path: 'tracking', component:TrackingComponent,
     children: [
       {path: 'studentprofile', component:StudentprofileComponent},
+      {path: 'enrollmentdata', component:EnrollmentDataComponent},
+      {path: 'tuition-fees', component:TuitionFeesComponent},
       {path: 'payment', component:PaymentComponent},
       {path: 'proof', component:ProofComponent},
 

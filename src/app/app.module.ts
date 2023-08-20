@@ -11,6 +11,8 @@ import { ProofComponent } from './proof/proof.component';
 import { HomeComponent } from './home/home.component';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
 import { SignupComponent } from './signup/signup.component';
+import { EnrollmentDataComponent } from './enrollment-data/enrollment-data.component';
+import { TuitionFeesComponent } from './tuition-fees/tuition-fees.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { SignupComponent } from './signup/signup.component';
     ProofComponent,
     HomeComponent,
     EnrollmentComponent,
-    SignupComponent
+    SignupComponent,
+    EnrollmentDataComponent,
+    TuitionFeesComponent
   ],
   imports: [
     BrowserModule,
