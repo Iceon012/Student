@@ -1,1 +1,48 @@
-<p>proof works!</p>
+<div class="lg:max-w-full">
+    <h1 class="text-xl font-extrabold text-blue-900 mb-3 lg:text-3xl">PROOF OF PAYMENT</h1>
+    <div class="grid gap-4 md:grid-cols-2">
+        <div>
+            <input
+                class="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                id="large_size" type="file" id="formFile" (change)="onFileSelected($event)">
+            <br>
+            <img class="h-auto max-w-full rounded-lg shadow" [src]="url" alt="image description">
+            <button type="submit"
+            class="text-white mt-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            routerLink="/tracking/enrollmentdata">Submit</button>
+        </div>
+
+        <div>
+            <div class="block max-w-full p-6 rounded-lg bg-blue-50">
+                <div class="" style="font-size: 18px; text-align: left;">
+                    <strong class="text-grey-400">
+                        Payment could be made through:</strong>
+                </div>
+                <ol class="space-y-4 text-gray-900 list-decimal list-inside dark:text-gray-400">
+                    <li>
+                        School Cashier
+                        <ul class="pl-5 mt-2 space-y-1 list-disc list-inside">
+                            <li>7:30-12:00 A.M. (Mon.to Fri.)</li>
+                            <li>7:30-12:00 A.M. | 1:30-5:00 P.M (Mon.to Thurs.)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Online Payment(To pay online please click the link below)
+                        <ul class="pl-5 mt-2 space-y-1 list-disc list-inside">
+                            <li class="text-blue-600"><a href="#"
+                                    class="inline-flex items-center font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                    Link for Online Payment
+                                    <svg class="w-4 h-4 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>

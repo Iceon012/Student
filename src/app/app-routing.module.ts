@@ -9,28 +9,51 @@ import { HomeComponent } from './home/home.component';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
 import { EnrollmentDataComponent } from './enrollment-data/enrollment-data.component';
 import { TuitionFeesComponent } from './tuition-fees/tuition-fees.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SubjectComponent } from './subject/subject.component';
 
 const routes: Routes = [
-  {path: 'enrollment', component:EnrollmentComponent},
-  {path: 'home', component:HomeComponent},
-  {path: 'login', component:LoginComponent},
-  {path: 'tracking', component:TrackingComponent,
+  { path: 'enrollment', component: EnrollmentComponent },
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'home',
+    component: HomeComponent,
     children: [
-      {path: 'studentprofile', component:StudentprofileComponent},
-      {path: 'enrollmentdata', component:EnrollmentDataComponent},
-      {path: 'tuition-fees', component:TuitionFeesComponent},
-      {path: 'payment', component:PaymentComponent},
-      {path: 'proof', component:ProofComponent},
-
-      {path: '', redirectTo: '/tracking/studentprofile', pathMatch: 'full'}
+      {
+        path: 'tracking',
+        component: TrackingComponent,
+        children: [
+          { path: 'studentprofile', component: StudentprofileComponent },
+          { path: 'enrollmentdata', component: EnrollmentDataComponent },
+          { path: 'tuition-fees', component: TuitionFeesComponent },
+          { path: 'payment', component: PaymentComponent },
+          { path: 'proof', component: ProofComponent },
+          {
+            path: '',
+            redirectTo: 'studentprofile',
+            pathMatch: 'full',
+          },
+        ],
+      },
+      { path: '', redirectTo: 'tracking', pathMatch: 'full' },
     ]
   },
-  
-  {path: '', redirectTo:'enrollment', pathMatch: 'full'}
+  {
+    path: 'dash', component:DashboardComponent,
+    children: [
+      {path: 'subject', component:SubjectComponent},
+      {
+        path: '',
+        redirectTo: 'subject',
+        pathMatch: 'full',
+      }
+    ]
+  },
+  { path: '', redirectTo: 'enrollment', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
