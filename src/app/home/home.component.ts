@@ -8,5 +8,14 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
 
-  
+  constructor(private route: Router) {
+  }
+
+  logout() {
+    const confirmation = confirm("Do you want to Log-out?")
+    if(confirmation) {
+      localStorage.removeItem('LRN')
+      this.route.navigate(['login'])
+    }
+  }
 }

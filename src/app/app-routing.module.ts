@@ -13,15 +13,17 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SubjectComponent } from './subject/subject.component';
 import { SignupComponent } from './signup/signup.component';
 import { ReferenceComponent } from './reference/reference.component';
+import { authGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: 'enrollment', component: EnrollmentComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent},
   { path: 'signup', component: SignupComponent},
   { path: 'reference', component:ReferenceComponent},
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [authGuard],
     children: [
       {
         path: 'tracking',

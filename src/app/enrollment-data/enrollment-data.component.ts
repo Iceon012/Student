@@ -27,13 +27,13 @@ export class EnrollmentDataComponent {
   students: any;
   selectedValue: any;
   strands: any;
-  
-  constructor(private post: EnrollmentService, private route:Router) {}
+
+  constructor(private post: EnrollmentService, private route: Router) {}
 
   ngOnInit(): void {
     this.fetchStudentProfile();
   }
-  
+
   selectedGrade(grade: any) {
     this.selectedValue = grade.target.value;
     this.updateStrandBasedOnGrade();
@@ -46,37 +46,50 @@ export class EnrollmentDataComponent {
 
   onSubmitData() {
     console.log(this.enrolldata.value);
-    this.post.updateEnrollment(this.enrolldata.value).subscribe((result: any) => {
-      console.log(result);
-    });
+    this.post
+      .updateEnrollment(this.enrolldata.value)
+      .subscribe((result: any) => {
+        console.log(result);
+
+        
+      });
   }
 
   private fetchStudentProfile(): void {
     this.post.studProfile(this.studLRN.studLRN).subscribe((result: any) => {
       this.students = result;
 
-      console.log(this.students)
-      
-      this.strands = this.students[0]?.grade_level === '11' || this.students[0]?.grade_level === '12';
+      console.log(this.students);
 
       if(this.students[0]?.regapproval_date !== null) {
-        this.route.navigate(['/home/tracking/tuition-fees']);
+        this.route.navigate(['/home/tracking/tuition-fees'])
       }
-      else {
-        if (!this.strands || (this.selectedValue !== '11' && this.selectedValue !== '12')) {
-          this.enrolldata.controls['strand'].setValue(null);
-        } else {
-          this.enrolldata.controls['strand'].setValue(this.students[0]?.strand);
-        }
+
+      this.strands =
+        this.students[0]?.grade_level === '11' ||
+        this.students[0]?.grade_level === '12';
+
+      if (
+        !this.strands ||
+        (this.selectedValue !== '11' && this.selectedValue !== '12')
+      ) {
+        this.enrolldata.controls['strand'].setValue(null);
+      } else {
+        this.enrolldata.controls['strand'].setValue(this.students[0]?.strand);
       }
 
       this.enrolldata.controls['grade'].setValue(this.students[0]?.grade_level);
       this.enrolldata.controls['strand'].setValue(this.students[0]?.strand);
-      this.enrolldata.controls['guardian_name'].setValue(this.students[0]?.guardian_name);
-      this.enrolldata.controls['contact_no'].setValue(this.students[0]?.contact_no);
-      this.enrolldata.controls['last_attended'].setValue(this.students[0]?.last_attended);
+      this.enrolldata.controls['guardian_name'].setValue(
+        this.students[0]?.guardian_name
+      );
+      this.enrolldata.controls['contact_no'].setValue(
+        this.students[0]?.contact_no
+      );
+      this.enrolldata.controls['last_attended'].setValue(
+        this.students[0]?.last_attended
+      );
       this.enrolldata.controls['sector'].setValue(this.students[0]?.sector);
-      
     });
   }
 

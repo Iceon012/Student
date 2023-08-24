@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { EnrollmentService } from '../enrollment.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-studentprofile',
@@ -28,7 +29,7 @@ export class StudentprofileComponent {
   });
 
   students: any;
-  constructor(private post: EnrollmentService) {}
+  constructor(private post: EnrollmentService, private route: Router) {}
 
   ngOnInit(): void {
     console.log(this.studLRN.studLRN);
@@ -58,7 +59,7 @@ export class StudentprofileComponent {
     this.post.updateProfile(this.personinfo.value).subscribe((result: any) => {
       console.log(result);
       if (result == 'ok') {
-        this.alert = !this.alert;
+        this.route.navigate(['/home/tracking/enrollmentdata'])
       }
     });
   }
