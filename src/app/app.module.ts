@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +21,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SubjectComponent } from './subject/subject.component';
 import { BalanceComponent } from './balance/balance.component';
 import { RequirementsComponent } from './requirements/requirements.component';
+import { ReferenceComponent } from './reference/reference.component';
 
 @NgModule({
   declarations: [
@@ -38,12 +40,14 @@ import { RequirementsComponent } from './requirements/requirements.component';
     DashboardComponent,
     SubjectComponent,
     BalanceComponent,
-    RequirementsComponent
+    RequirementsComponent,
+    ReferenceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

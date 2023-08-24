@@ -1,10 +1,8 @@
 <div class="grid lg:grid-cols-3">
     <div class="bg-blue-900 vh-auto p-3 shadow-lg"
-        style="background-image: url('assets/login.jpg'); background-size: cover; background-position: center center;">
+        style="background-image: url('assets/login.jpg'); background-size: cover; background-position: center center; height: 100%;">
         <div class=" mx-auto max-w-screen-2xl text-center py-24 lg:py-24">
             <h1 class=" text-sm font-bold text-white lg:text-xl ">
-
-
                 <div class="flex items-center justify-center">
                     <img src="assets/logo.png" alt="Descriptive Alt Text" width="150">
                 </div>
@@ -25,25 +23,32 @@
                 STUDENT LOGIN
             </h5>
             <br>
-            <form class=" p-3">
+            <div class="p-3 mb-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert" *ngIf="err">
+                <span class="font-medium">
+                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+
+                    You entered an invalid email / reference number!
+                </span>
+              </div>
+            <form class=" p-3" [formGroup]="login" (ngSubmit)="onLogin()">
                 <div class="mb-3">
                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         Username
                     </label>
-                    <input type="text" id="email"
+                    <input type="text" id="email" formControlName="email"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
                 <div class="mb-6">
                     <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         Registration Reference Number
                     </label>
-                    <input type="password" id="password"
+                    <input type="password" id="password" formControlName="password"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
                 <div class="grid gap-6 mb-2 md:grid-cols-2">
                     <div>
                         <button type="submit"
-                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outpne-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" routerLink="/home">Submit</button>
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outpne-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
                     </div>
                     <div class="text-end text-blue-500">
                         <a href="">Forgot Password?</a>
@@ -54,7 +59,7 @@
         </div>
         <br>
         <div class="max-w-md sm:max-w-full p-4 bg-green-100 shadow rounded-lg text-center">
-            <a href="#">
+            <a routerLink="/signup">
                 <h5 class="mb-3 text-medium font-semibold tracking-tight text-blue-500 dark:text-white">No Login
                     Account? <b>ENROLL NOW</b></h5>
             </a>

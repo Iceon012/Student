@@ -12,11 +12,13 @@ import { TuitionFeesComponent } from './tuition-fees/tuition-fees.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SubjectComponent } from './subject/subject.component';
 import { SignupComponent } from './signup/signup.component';
+import { ReferenceComponent } from './reference/reference.component';
 
 const routes: Routes = [
   { path: 'enrollment', component: EnrollmentComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent},
+  { path: 'reference', component:ReferenceComponent},
   {
     path: 'home',
     component: HomeComponent,

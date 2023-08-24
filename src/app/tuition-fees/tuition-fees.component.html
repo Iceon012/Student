@@ -3,13 +3,13 @@
     <div class="grid gap-4 md:grid-cols-2">
         <div>
 
-            <div
-                class="block max-w-full p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <div *ngFor="let data of studData"
+                class="block max-w-full p-6 bg-white rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                 <h5 class="mb-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    ARVIN S. AYSON
+                    {{data.fname}} {{data.middle}} {{data.lname}}
                     <span
                         class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
-                        Grade 8
+                        Grade {{data.grade_level}} {{data.strand}}
                     </span>
                 </h5>
                 <div class="relative overflow-x-auto">
@@ -132,7 +132,7 @@
         <div>
 
             <div
-                class="w-full p-4 bg-green-50 border border-gray-200 rounded-lg sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                class="w-full p-4 bg-green-100 rounded-lg sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                 <div class="" style="font-size: 18px; text-align: left;">
                     <strong class="text-green-900">
                         For incoming Grade 11
