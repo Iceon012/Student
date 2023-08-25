@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { EnrollmentService } from '../enrollment.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tuition-fees',
@@ -9,7 +10,7 @@ import { EnrollmentService } from '../enrollment.service';
 export class TuitionFeesComponent {
   studLRN = { studLRN: localStorage.getItem('LRN') };
 
-  constructor(private post: EnrollmentService) {}
+  constructor(private post: EnrollmentService, private route: Router) {}
 
   studData : any
 
@@ -20,5 +21,10 @@ export class TuitionFeesComponent {
       console.log(result);
       this.studData = result
     });
+  }
+
+  fees() {
+    localStorage.setItem("enrol_id", this.studData[0].enrol_id)
+    this.route.navigate(['/home/tracking/proof'])
   }
 }

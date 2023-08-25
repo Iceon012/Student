@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpEventType } from '@angular/common/http';
+import { EnrollmentService } from '../enrollment.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ export class ProofComponent {
   list = ['12:30 PM', '1:00 AM']
   isEditable = true
 
-  studLRN = {studLRN:localStorage.getItem("LRN")};
+  enrol_id = {id:localStorage.getItem("enrol_id")};
 
   url = "./assets/receipt.jpg";
   image: any
@@ -19,14 +20,18 @@ export class ProofComponent {
   uploading: any
   progress: any
   images: any
-  LRN : any
+  en_id : any
 
-  constructor( private http: HttpClient) { }
+  constructor( private http: HttpClient, private post: EnrollmentService) { }
 
   ngOnInit(): void {
-    console.log(this.studLRN.studLRN)
-    this.LRN = this.studLRN.studLRN
+    console.log(this.enrol_id.id)
+    this.en_id = this.enrol_id.id
 
+    this.post.getData(this.en_id).subscribe((result:any)=>{
+      this.images = result.pics;
+      console.log(this.images);
+      });
   }
 
 
@@ -43,25 +48,24 @@ export class ProofComponent {
 
       this.image = e.target.files[0];
       console.log(this.image)
-      this.onPost(e.target.files[0])
-
     }
   }
   
 
   //View
-  onPost(file: any) {
+  onPost() {
+    console.log(this.image.name)
     const fd = new FormData();
-    if (this.selectedFile != null) {
-      console.log(file);
+    if (this.image.name != null) {
+      console.log(this.image.name);
       this.uploading = true;
 
-      fd.append('files', file);
-      fd.append('pid', this.LRN);
+      fd.append('files', this.image);
+      fd.append('enrol_id', this.en_id);
       console.log(fd);
 
       this.http
-        .post('http://localhost/LRMS/saveimage.php', fd, {
+        .post('http://localhost/nlacacademy/uploadPayment.php', fd, {
           observe: 'events',
           reportProgress: true,
         })
@@ -75,13 +79,15 @@ export class ProofComponent {
           if (event.type == HttpEventType.Response) {
             this.images = event.body.pics;
             console.log(event);
+
+            if(event === true) {
+              
+            }
+  
           }
         });
         
-    }
-
-    console.log(this.selectedFile)
-   
+    }   
   }
 
 }

@@ -62,7 +62,7 @@ export class EnrollmentDataComponent {
       console.log(this.students);
 
       if(this.students[0]?.regapproval_date !== null) {
-        this.route.navigate(['/home/tracking/tuition-fees'])
+        // this.route.navigate(['/home/tracking/tuition-fees'])
       }
 
       this.strands =

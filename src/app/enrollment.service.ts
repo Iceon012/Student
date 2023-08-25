@@ -10,6 +10,10 @@ export class EnrollmentService {
 
   constructor(private http: HttpClient) {}
 
+  getData(pid:any){
+    return this.http.get(this.url + 'getPayment.php?en_id=' + pid);
+    }
+
   enroll(stud: any) {
     return this.http.post(this.url + 'signup.php', JSON.stringify(stud));
   }
