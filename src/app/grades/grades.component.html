@@ -1,44 +1,56 @@
-<div class="lg:max-w-full">
-    <h1 class="text-xl font-extrabold text-blue-900 mb-3 lg:text-3xl">TUITION AND FEES</h1>
-    <div class="grid gap-6 md:grid-cols-2">
-        <div>
+<div class="lg:max-w-full p-5">
+    <!-- <h1 class="text-xl font-extrabold text-blue-900 mb-3 lg:text-3xl">Monday Classes</h1> -->
+    <div class="grid gap-6 md:grid-cols-1">
+        <div class="xs:overflow-x-auto">
 
-            <div *ngFor="let data of studData"
-                class="block max-w-full p-6 bg-white rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                <h5 class="mb-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    {{data.fname}} {{data.middle}} {{data.lname}}
-                    <span
-                        class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
-                        Grade {{data.grade_level}} {{data.strand}}
-                    </span>
+            <div 
+                class="block max-w-full p-6 bg-white rounded-lg  hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                <h5 class="mb-4 text-2xl font-bold tracking-tight text-blue-900 dark:text-white">
+                   Subject
                 </h5>
-                <div class="relative">
-                    <table class="w-full text-md text-left text-gray-500 dark:text-gray-800" *ngFor="let fee of tuitionAndFees">
+                <div class="relative overflow-x-auto">
+                    <table class="w-full text-md text-left text-gray-500 dark:text-gray-800">
                         <thead>
                             <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                 <th scope="row"
                                     class="p-3 py-2 font-medium text-gray-600 whitespace-nowrap dark:text-white">
-                                    Old Account
+                                    Name
                                 </th>
 
-                                <td
-                                    class="p-3 py-2 font-medium text-gray-900 text-end whitespace-nowrap dark:text-white">
-                                    {{(fee.old_acct) | number:'1.2-2'}}
-                                </td>
+                                <td 
+                                    class="p-3 py-2 font-medium text-gray-900 text-end whitespace-nowrap dark:text-white text-end">
+                                    Grade
+                                </td> 
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody *ngFor="let stud of stud_roster">
                             <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                 <th scope="row"
                                     class="p-3 py-2 font-medium text-gray-600 whitespace-nowrap dark:text-white">
-                                    Tuition Fee
+                                    {{stud.LRN}}
                                 </th>
-
+                                
                                 <td
                                     class="p-3 py-2 font-medium text-gray-600 text-end whitespace-nowrap dark:text-white">
-                                    {{(fee.tuition_fees) | number:'1.2-2'}}
+                                    <form [formGroup]="Grade">
+                                        <label for="">1st</label>
+                                        <input type="text" class="text-gray-500 mr-4" formControlName="input" (keyup)="conditionalKeyup($event)" style="border: 0; width: 50px; text-align: center; border-radius: 10px; padding-left: 1rem;" value="0">
+                            
+                                        <label for="">2nd</label>
+                                        <input type="text" class="text-gray-500 mr-2" formControlName="input2" (keyup)="conditionalKeyup2($event)" style="border: 0; width: 50px; text-align: center; border-radius: 10px;" value="0">
+                                    
+                               
+                                        <label for="">3rd</label>
+                                        <input type="text" class="text-gray-500" formControlName="input3" (keyup)="conditionalKeyup3($event)" style="border: 0; width: 50px; text-align: center; border-radius: 10px;  padding-left: 1rem;" value="0">
+                                    
+                               
+                                        <label for="">4th</label>
+                                        <input type="text" class="text-gray-500 ml-3" formControlName="input4" (keyup)="conditionalKeyup4($event)" style="border: 0; width: 50px; text-align: center; border-radius: 10px;" value="0">
+                                    </form>
                                 </td>
+                            
                             </tr>
+                            <!---
                             <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                 <th scope="row"
                                     class="p-3 py-2 font-medium text-gray-600 whitespace-nowrap dark:text-white">
@@ -47,7 +59,7 @@
 
                                 <td
                                     class="p-3 py-2 font-medium text-gray-600 text-end whitespace-nowrap dark:text-white">
-                                    {{(fee.gen_fee) | number:'1.2-2'}}
+                                    7,970.86
                                 </td>
                             </tr>
                             <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
@@ -58,18 +70,7 @@
 
                                 <td
                                     class="p-3 py-2 font-medium text-gray-600 text-end whitespace-nowrap dark:text-white">
-                                    {{(fee.lms_fee) | number:'1.2-2'}}
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                <th scope="row"
-                                    class="p-3 py-2 font-medium text-gray-600 whitespace-nowrap dark:text-white">
-                                    School Subsidy:
-                                </th>
-
-                                <td
-                                    class="p-3 py-2 font-medium text-gray-600 text-end whitespace-nowrap dark:text-white">
-                                    {{(fee.school_subsidy) | number:'1.2-2'}}
+                                    1,750.00
                                 </td>
                             </tr>
                             <tr class="bg-white dark:bg-gray-900 dark:border-gray-700">
@@ -80,7 +81,7 @@
 
                                 <td class="p-3 py-2 font-medium text-gray-900 text-end whitespace-nowrap dark:text-white"
                                     style="border-bottom: 3px double #000;">
-                                    <b>{{(fee.old_acct + fee.tuition_fees + fee.gen_fee + fee.lms_fee - fee.school_subsidy) | number:'1.2-2'}}</b>
+                                    <b>25,864.41</b>
                                 </td>
                             </tr>
                             <tr class="bg-white dark:bg-gray-900 dark:border-gray-700">
@@ -91,7 +92,7 @@
 
                                 <td
                                     class="p-3 py-2 font-medium text-gray-900 text-end whitespace-nowrap dark:text-white">
-                                    <b>{{(fee.esc) | number:'1.2-2'}}</b>
+                                    <b>9,000.00</b>
                                 </td>
                             </tr>
                             <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
@@ -102,7 +103,7 @@
 
                                 <td
                                     class="p-3 py-2 font-medium text-gray-600 text-end whitespace-nowrap dark:text-white">
-                                    {{(fee.old_acct + fee.tuition_fees + fee.gen_fee + fee.lms_fee - (fee.esc + fee.school_subsidy)) | number:'1.2-2'}}
+                                    16,864.41
                                 </td>
                             </tr>
                             <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
@@ -113,8 +114,7 @@
 
                                 <td class="p-3 py-2 font-medium text-gray-900 text-end whitespace-nowrap dark:text-white"
                                     style="border-bottom: 3px double #000;">
-                                    <b>
-                                        {{ (fee.old_acct + fee.tuition_fees + fee.gen_fee + fee.lms_fee - (fee.esc + fee.school_subsidy)) * 0.40 | number:'1.2-2'}}
+                                    <b>6,314.41
                                     </b>
                                 </td>
                             </tr>
@@ -126,65 +126,18 @@
 
                                 <td
                                     class="p-3 py-2 font-medium text-gray-900 text-end whitespace-nowrap dark:text-white">
-                                    <b>
-                                        {{ (fee.old_acct + fee.tuition_fees + fee.gen_fee + fee.lms_fee - fee.school_subsidy) * 0.40 | number:'1.2-2' }}
+                                    <b>9,714.41
                                     </b>
                                 </td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                 </div>
                 <br>
-                <button type="button" (click)="fees()"
+                <button type="button"
             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Next</button>
             </div>
 
-        </div>
-
-        <div>
-
-            <div
-                class="w-full p-4 bg-green-100 rounded-lg sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-                <div class="" style="font-size: 18px; text-align: left;">
-                    <strong class="text-green-900">
-                        For incoming Grade 11
-                    </strong>, ESC Certificate can be use as down payment. Those coming from public school no need to
-                    pay downpayment.
-                </div>
-                <br>
-            </div>
-            <br>
-            <div class="block max-w-full p-6 rounded-lg bg-blue-50">
-                <div class="" style="font-size: 18px; text-align: left;">
-                    <strong class="text-grey-400">
-                        Payment could be made through:</strong>
-                </div>
-
-
-                <ol class="space-y-4 text-gray-900 list-decimal list-inside dark:text-gray-400">
-                    <li>
-                        School Cashier
-                        <ul class="pl-5 mt-2 space-y-1 list-disc list-inside">
-                            <li>7:30-12:00 A.M. (Mon.to Fri.)</li>
-                            <li>7:30-12:00 A.M. | 1:30-5:00 P.M (Mon.to Thurs.)</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Online Payment(To pay online please click the link below)
-                        <ul class="pl-5 mt-2 space-y-1 list-disc list-inside">
-                            <li class="text-blue-600"><a href="#"
-                                    class="inline-flex items-center font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                    Link for Online Payment
-                                    <svg class="w-4 h-4 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 14 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                    </svg>
-                                </a></li>
-                        </ul>
-                    </li>
-                </ol>
-            </div>
         </div>
     </div>
 </div>

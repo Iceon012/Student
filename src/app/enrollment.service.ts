@@ -14,12 +14,20 @@ export class EnrollmentService {
     return this.http.get(this.url + 'getPayment.php?en_id=' + pid);
     }
 
+  getGrades() {
+    return this.http.get(this.url + 'displayGrades.php')
+  }
+
   enroll(stud: any) {
     return this.http.post(this.url + 'signup.php', JSON.stringify(stud));
   }
 
   studOne(lrn: any) {
     return this.http.get(this.url + 'studProfile.php?LRN=' + lrn);
+  }
+
+  GradesOne(Grade: any) {
+    return this.http.post(this.url + 'updateGrades.php', JSON.stringify(Grade));
   }
 
   StudLogin(log: any) {

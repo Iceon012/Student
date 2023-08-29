@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { EnrollmentService } from '../enrollment.service';
 import { Router } from '@angular/router';
@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class StudentprofileComponent {
   studLRN = { studLRN: localStorage.getItem('LRN') };
+
+  // @Output() dataToParent = new EventEmitter<string>();
 
   alert = false;
 

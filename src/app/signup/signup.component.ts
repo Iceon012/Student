@@ -37,16 +37,15 @@ export class SignupComponent {
 
   selectedGrade(grade: any) {
     this.selectedValue = grade.target.value;
-    console.log(this.selectedValue);
 
-    if(this.selectedValue == "11" || this.selectedValue == "12" )
-    {
-      this.strands = !this.strands
-      this.ngOnInit()
+    if(this.selectedValue === '7' || this.selectedValue === '8' || 
+    this.selectedValue === '9' || this.selectedValue === '10') {
+      
+      this.register.controls['strand'].setValue(null); 
     }
-    else {
-      this.strands = false
-    }
+    
+    this.updateStrandBasedOnGrade();
+    console.log(this.selectedValue);
   }
 
   selectedStrand(strand: any) {
@@ -54,7 +53,7 @@ export class SignupComponent {
     console.log(selectedValue);
   }
 
-  onSubmit() {
+   onSubmit() {
     console.log(this.register.value)
     this.post.enroll(this.register.value).subscribe((result:any)=>
     {
@@ -80,4 +79,13 @@ export class SignupComponent {
     })
   }
 
+
+  private updateStrandBasedOnGrade(): void {
+    this.strands = this.selectedValue === '11' || this.selectedValue === '12';
+    if (!this.strands) {
+      this.register.controls['strand'].setValue(null);
+    }
+
+    console.log(this.register.value)
+  }
 }

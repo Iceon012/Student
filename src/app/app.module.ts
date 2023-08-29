@@ -22,6 +22,8 @@ import { SubjectComponent } from './subject/subject.component';
 import { BalanceComponent } from './balance/balance.component';
 import { RequirementsComponent } from './requirements/requirements.component';
 import { ReferenceComponent } from './reference/reference.component';
+import { GradesComponent } from './grades/grades.component';
+import { RosterComponent } from './roster/roster.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { ReferenceComponent } from './reference/reference.component';
     SubjectComponent,
     BalanceComponent,
     RequirementsComponent,
-    ReferenceComponent
+    ReferenceComponent,
+    GradesComponent,
+    RosterComponent
   ],
   imports: [
     BrowserModule,

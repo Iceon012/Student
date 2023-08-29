@@ -14,10 +14,14 @@ import { SubjectComponent } from './subject/subject.component';
 import { SignupComponent } from './signup/signup.component';
 import { ReferenceComponent } from './reference/reference.component';
 import { authGuard } from './auth.guard';
+import { GradesComponent } from './grades/grades.component';
+import { RosterComponent } from './roster/roster.component';
 
 const routes: Routes = [
   { path: 'enrollment', component: EnrollmentComponent },
   { path: 'login', component: LoginComponent},
+  { path: 'grade', component:GradesComponent},
+  { path: 'roster', component: RosterComponent},
   { path: 'signup', component: SignupComponent},
   { path: 'reference', component:ReferenceComponent},
   {
@@ -32,7 +36,7 @@ const routes: Routes = [
           { path: 'studentprofile', component: StudentprofileComponent },
           { path: 'enrollmentdata', component: EnrollmentDataComponent },
           { path: 'tuition-fees', component: TuitionFeesComponent },
-          { path: 'payment', component: PaymentComponent },
+          // { path: 'payment', component: PaymentComponent },
           { path: 'proof', component: ProofComponent },
           {
             path: '',

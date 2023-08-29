@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpEventType } from '@angular/common/http';
 import { EnrollmentService } from '../enrollment.service';
+import { DataService } from '../data.service';
 
 
 @Component({
@@ -22,15 +23,16 @@ export class ProofComponent {
   images: any
   en_id : any
 
-  constructor( private http: HttpClient, private post: EnrollmentService) { }
+  constructor( private http: HttpClient, private post: EnrollmentService, private dataService: DataService) { }
 
   ngOnInit(): void {
     console.log(this.enrol_id.id)
-    this.en_id = this.enrol_id.id
+    this.post.getData(this.enrol_id.id).subscribe((result:any)=>{
+      this.images = result;
+      console.log(result.data);
 
-    this.post.getData(this.en_id).subscribe((result:any)=>{
-      this.images = result.pics;
-      console.log(this.images);
+      this.dataService.changeData(result.data);
+
       });
   }
 
@@ -50,6 +52,7 @@ export class ProofComponent {
       console.log(this.image)
     }
   }
+
   
 
   //View
@@ -73,17 +76,12 @@ export class ProofComponent {
           console.log(event);
           if (event.type === HttpEventType.UploadProgress) {
             this.progress = (event.loaded / event.total) * 100;
+            console.log(this.progress)
             this.ngOnInit()
-            
           }
           if (event.type == HttpEventType.Response) {
             this.images = event.body.pics;
             console.log(event);
-
-            if(event === true) {
-              
-            }
-  
           }
         });
         

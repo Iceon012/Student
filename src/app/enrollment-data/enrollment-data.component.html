@@ -1,5 +1,5 @@
 <div class="lg:max-w-full">
-    <!-- <div id="toast-success"
+    <div id="toast-success" *ngIf="alertData"
         class="flex items-center w-full max-w-5xl p-3 mb-4 bg-green-50 rounded-lg dark:text-gray-400 dark:bg-gray-800"
         role="alert">
         <div
@@ -21,7 +21,7 @@
                     d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
             </svg>
         </button>
-    </div> -->
+    </div>
     <h1 class="text-xl font-extrabold text-blue-900 mb-3 lg:text-3xl">ENROLLMENT DETAILS</h1>
     <form [formGroup]="enrolldata" (ngSubmit)="onSubmitData()" *ngFor="let data of students">
         <div class="mb-6">

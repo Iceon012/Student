@@ -1,10 +1,11 @@
 // Angular imports
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 // Service imports
 import { EnrollmentService } from '../enrollment.service';
 import { Router } from '@angular/router';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-enrollment-data',
@@ -13,6 +14,9 @@ import { Router } from '@angular/router';
 })
 export class EnrollmentDataComponent {
   studLRN = { studLRN: localStorage.getItem('LRN') };
+
+  @Output() dataToParent = new EventEmitter<string>();
+
 
   enrolldata = new FormGroup({
     LRN: new FormControl(this.studLRN.studLRN),
@@ -27,8 +31,9 @@ export class EnrollmentDataComponent {
   students: any;
   selectedValue: any;
   strands: any;
+  alertData = false
 
-  constructor(private post: EnrollmentService, private route: Router) {}
+  constructor(private post: EnrollmentService, private route: Router,  private dataService: DataService) {}
 
   ngOnInit(): void {
     this.fetchStudentProfile();
@@ -49,9 +54,12 @@ export class EnrollmentDataComponent {
     this.post
       .updateEnrollment(this.enrolldata.value)
       .subscribe((result: any) => {
-        console.log(result);
+        console.log(result.data);
+        if(result.msg == "ok") {
+          this.alertData = !this.alertData
 
-        
+          this.dataService.changeData(result.data);
+        }
       });
   }
 

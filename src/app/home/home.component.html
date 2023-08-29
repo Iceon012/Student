@@ -1,6 +1,6 @@
 <nav class="">
-  <div class="max-w-full bg-blue-900 text-white">
-      <div class="flex flex-wrap justify-between items-center mx-auto p-2">
+  <div class="max-w-full bg-blue-900 text-white sm:max-w-full">
+      <div class="flex flex-wrap justify-between items-center mx-auto p-1">
     <a class="flex items-center mt-2 mb-2">
       <img
         src="assets/logo.png"
@@ -17,7 +17,7 @@
         <i class="fa fa-user" aria-hidden="true"></i>
         Account
       </a> -->
-      <a class="mr-6 text-lg  text-gray-100 dark:text-white" (click)="logout()">
+      <a class="mr-8 text-medium text-gray-100 dark:text-white" (click)="logout()">
         <i class="fa fa-sign-out" aria-hidden="true"></i>
         Log-out
       </a>
@@ -25,6 +25,6 @@
   </div>
 </div>
 </nav>
-<div class="p-5">
+<div class="p-5 ">
   <router-outlet></router-outlet>
 </div>
