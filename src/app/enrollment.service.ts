@@ -5,17 +5,20 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class EnrollmentService {
-
   url = 'http://localhost/nlacacademy/';
 
   constructor(private http: HttpClient) {}
 
-  getData(pid:any){
+  getData(pid: any) {
     return this.http.get(this.url + 'getPayment.php?en_id=' + pid);
-    }
+  }
+
+  getPayment(pid: any) {
+    return this.http.get(this.url + 'payment.php?en_id=' + pid);
+  }
 
   getGrades() {
-    return this.http.get(this.url + 'displayGrades.php')
+    return this.http.get(this.url + 'displayGrades.php');
   }
 
   enroll(stud: any) {
@@ -43,6 +46,9 @@ export class EnrollmentService {
   }
 
   updateEnrollment(LRN: any) {
-    return this.http.post(this.url + 'updateEnrollment.php', JSON.stringify(LRN));
+    return this.http.post(
+      this.url + 'updateEnrollment.php',
+      JSON.stringify(LRN)
+    );
   }
 }

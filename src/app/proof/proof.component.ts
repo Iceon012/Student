@@ -26,14 +26,18 @@ export class ProofComponent {
   constructor( private http: HttpClient, private post: EnrollmentService, private dataService: DataService) { }
 
   ngOnInit(): void {
-    console.log(this.enrol_id.id)
-    this.post.getData(this.enrol_id.id).subscribe((result:any)=>{
-      this.images = result;
-      console.log(result.data);
+    console.log(this.enrol_id.id);
+    this.en_id = this.enrol_id.id;
+    
+    this.post.getData(this.en_id).subscribe((result: any) => {
+      this.images = result.data;
 
-      this.dataService.changeData(result.data);
+      console.log(this.images);
 
-      });
+      this.dataService.changeData(this.images);
+      
+    });
+    
   }
 
 
@@ -86,6 +90,9 @@ export class ProofComponent {
         });
         
     }   
+
+     
+
   }
 
 }

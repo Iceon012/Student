@@ -31,12 +31,13 @@ const routes: Routes = [
     children: [
       {
         path: 'tracking',
+        canActivate:[authGuard],
         component: TrackingComponent,
         children: [
           { path: 'studentprofile', component: StudentprofileComponent },
           { path: 'enrollmentdata', component: EnrollmentDataComponent },
           { path: 'tuition-fees', component: TuitionFeesComponent },
-          // { path: 'payment', component: PaymentComponent },
+          { path: 'payment', component: PaymentComponent },
           { path: 'proof', component: ProofComponent },
           {
             path: '',

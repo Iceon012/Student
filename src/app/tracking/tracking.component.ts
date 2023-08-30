@@ -14,6 +14,7 @@ export class TrackingComponent implements OnInit {
   studLRN = { LRN: localStorage.getItem('LRN') };
 
   subscription: any;
+  data2: any;
 
   constructor(private post: EnrollmentService, private route: Router, private dataService: DataService) {}
 
@@ -25,10 +26,19 @@ export class TrackingComponent implements OnInit {
       if (data) {
         console.log(data);
         this.studData = data
+
+        if (this.studData[0]?.date_of_payment === null) {
+          this.route.navigate(['/home/tracking/tuition-fees']);
+        } 
+
+        else if (this.studData[0]?.payment_approval !== null) {
+          localStorage.setItem('enrol_id', this.studData[0].enrol_id);
+          this.route.navigate(['/home/tracking/payment']);
+
+        } 
       }
     });
 
-    // console.log(this.subscription)
     this.post
       .studProfile(this.studLRN.LRN)
       .pipe(
@@ -36,20 +46,7 @@ export class TrackingComponent implements OnInit {
           this.studData = result;
           console.log(this.studData);
 
-          if (this.studData[0]?.date_of_payment != null) {
-
-            localStorage.setItem('enrol_id', this.studData[0].enrol_id);
-            this.route.navigate(['/home/tracking/proof']);
-          } 
-          // else if (
-          //   this.studData[0]?.regapproval_date ||
-          //   this.studData[0]?.payment_approval
-          // ) {
-          //   this.registration_approval = true;
-          //   this.route.navigate(['/home/tracking/tuition-fees']);
-          // } else if (this.studData[0]?.regapproval_date === null) {
-          //   this.route.navigate(['/home/tracking/studentprofile']);
-          // }
+ 
         }),
         catchError((error) => {
           console.error('Error fetching student profile:', error);
