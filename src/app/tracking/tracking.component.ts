@@ -27,15 +27,19 @@ export class TrackingComponent implements OnInit {
         console.log(data);
         this.studData = data
 
-        if (this.studData[0]?.date_of_payment === null) {
-          this.route.navigate(['/home/tracking/tuition-fees']);
+        if (this.studData[0].date_of_payment === null) {
+          this.route.navigate(['/home/tracking/proof']);
         } 
 
-        else if (this.studData[0]?.payment_approval !== null) {
+        else if (this.studData[0].payment_approval !== null) {
           localStorage.setItem('enrol_id', this.studData[0].enrol_id);
           this.route.navigate(['/home/tracking/payment']);
 
         } 
+        else {
+          localStorage.setItem('enrol_id', this.studData[0].enrol_id);
+          this.route.navigate(['/home/tracking/proof']);
+        }
       }
     });
 
@@ -43,9 +47,22 @@ export class TrackingComponent implements OnInit {
       .studProfile(this.studLRN.LRN)
       .pipe(
         tap((result: any) => {
-          this.studData = result;
-          console.log(this.studData);
+          console.log(result)
+          this.studData = result
 
+          if (this.studData[0].date_of_payment === null) {
+            this.route.navigate(['/home/tracking/tuition-fees']);
+          } 
+  
+          else if (this.studData[0].payment_approval !== null) {
+            localStorage.setItem('enrol_id', this.studData[0].enrol_id);
+            this.route.navigate(['/home/tracking/payment']);
+  
+          } 
+          else {
+            localStorage.setItem('enrol_id', this.studData[0].enrol_id);
+            this.route.navigate(['/home/tracking/proof']);
+          }
  
         }),
         catchError((error) => {

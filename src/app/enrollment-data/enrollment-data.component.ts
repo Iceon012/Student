@@ -54,11 +54,12 @@ export class EnrollmentDataComponent {
     this.post
       .updateEnrollment(this.enrolldata.value)
       .subscribe((result: any) => {
-        console.log(result.data);
-        if(result.msg == "ok") {
+        console.log(result);
+        if(result.msg == "Success") {
           this.alertData = !this.alertData
 
           this.dataService.changeData(result.data);
+          console.log(result)
         }
       });
   }

@@ -87,9 +87,13 @@ export class TuitionFeesComponent implements OnInit {
   }
 
   fees() {
-    localStorage.setItem('enrol_id', this.studData[0].enrol_id);
-    this.route.navigate(['/home/tracking/proof']);
+    // localStorage.setItem('enrol_id', this.studData[0].enrol_id);
+    // this.route.navigate(['/home/tracking/proof']);
 
-    this.dataService.changeData(this.studData);
+    // if(this.studData[0].payment_approval == null) {
+      localStorage.setItem('enrol_id', this.studData[0].enrol_id);
+      this.route.navigate(['/home/tracking/proof']);
+    // }
+
   }
 }

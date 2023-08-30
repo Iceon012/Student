@@ -32,10 +32,10 @@ export class ProofComponent {
     this.post.getData(this.en_id).subscribe((result: any) => {
       this.images = result.data;
 
-      console.log(this.images);
+      console.log(this.images); 
 
       this.dataService.changeData(this.images);
-      
+
     });
     
   }

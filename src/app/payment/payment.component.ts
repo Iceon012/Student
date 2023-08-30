@@ -23,14 +23,8 @@ export class PaymentComponent {
     
     this.post.getData(this.en_id).subscribe((result: any) => {
       this.images = result.data;
-
       console.log(this.images);
-
-      if(this.images[0].date_of_payment != null) {
-        this.route.navigate(['/home/tracking/payment']);
-      }
-
-      this.dataService.changeData(this.images);
+      // this.dataService.changeData(this.images);
       
     });
 
