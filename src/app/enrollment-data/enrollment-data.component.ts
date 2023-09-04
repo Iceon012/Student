@@ -58,8 +58,9 @@ export class EnrollmentDataComponent {
         if(result.msg == "Success") {
           this.alertData = !this.alertData
 
-          this.dataService.changeData(result.data);
-          console.log(result)
+            this.route.navigate(['/home/tracking/tuition-fees']);
+            this.dataService.changeData(result.data);
+            console.log(result)
         }
       });
   }

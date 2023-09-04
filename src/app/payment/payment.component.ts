@@ -28,10 +28,10 @@ export class PaymentComponent {
       
     });
 
-    this.post.getPayment(this.en_id).subscribe((payment: any) => {
-      console.log(payment)
+    this.post.getProof(this.en_id).subscribe((payment: any) => {
+      console.log(payment.data)
 
-      this.pay = payment
+      this.pay = payment.data
     });
   }
 }

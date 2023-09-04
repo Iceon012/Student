@@ -1,11 +1,67 @@
-<div class=" mt-4 flex items-center p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
-    <svg class="flex-shrink-0 inline w-6 h-6 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+<!-- <div >
+  <div
+    class=" mt-4 flex items-center p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
+    role="alert">
+    <svg class="flex-shrink-0 inline w-6 h-6 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor" viewBox="0 0 20 20">
+      <path
+        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
     </svg>
     <span class="sr-only">Info</span>
-    <div *ngFor="let data of pay">
+    <div>
       <h1 class="text-xl">
-        Your payment of <b>P{{data.amount_paid}}</b> has been approved. Your <b>OR#{{data.OR_number}}</b> is {{data.date_of_payment}}
+        Your payment of <b>P{{data.amount_paid}}</b> has been approved. Your <b>OR#{{data.OR_number}}</b> is
+        {{data.date_of_payment}}
       </h1>
+
+    </div>
+
+  </div>
+
+  <div class="grid grid-cols-2 gap-6 xs:grid-cols-12">
+    <div>
+
+      <img class="h-auto max-w-full shadow rounded-lg"  alt="image description">
+
     </div>
   </div>
+  <figure class="max-w-lg">
+    <img class="h-auto max-w-full rounded-lg" [src]="data.img" alt="image description">
+    
+  </figure>
+</div> -->
+
+<!-- <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+
+</div> -->
+<div
+class=" mt-4 flex items-center p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
+role="alert">
+<svg class="flex-shrink-0 inline w-6 h-6 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+  fill="currentColor" viewBox="0 0 20 20">
+  <path
+    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+</svg>
+<span class="sr-only">Info</span>
+<div>
+  <h1 class="text-xl">
+    Your payment of  has been approved.
+    <!-- {{data.date_of_payment}} -->
+  </h1>
+
+</div>
+
+</div>
+<br>
+<div class="grid grid-cols-2 gap-2" style="overflow-x: auto; height: 550px;">
+
+  <div *ngFor="let data of pay">
+    <img class="h-auto max-w-full rounded-lg" [src]="data.img" alt="">
+    <figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">
+      <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-blue-400">
+        OR#{{data.OR_number}} || P{{data.amount_paid}}
+    </span>
+    </figcaption>
+</div>
+</div>
+

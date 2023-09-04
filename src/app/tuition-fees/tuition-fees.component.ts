@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EnrollmentService } from '../enrollment.service';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
@@ -19,66 +19,26 @@ export interface Tuition {
 })
 export class TuitionFeesComponent implements OnInit {
   studLRN = { studLRN: localStorage.getItem('LRN') };
-
-  // @Output() dataToParent = new EventEmitter<string>();
-
-  tuition: any
-
   studData: any;
-  tuitionAndFees: Tuition[] = []; // initialize the array
+  tuitionAndFees: Tuition[] = [];
 
-  constructor(private post: EnrollmentService, private route: Router, private dataService: DataService) {}
+  constructor(
+    private post: EnrollmentService,
+    private route: Router,
+    private dataService: DataService
+  ) {}
 
   ngOnInit(): void {
-    console.log(this.studLRN.studLRN);
+    this.fetchStudentProfile();
+  }
 
+  fetchStudentProfile(): void {
+    console.log(this.studLRN.studLRN);
     this.post.studProfile(this.studLRN.studLRN).subscribe(
       (result: any) => {
         console.log(result);
         this.studData = result;
-        // Grade level check
-        if (
-          this.studData[0].grade_level === '7' ||
-          this.studData[0].grade_level === '8' ||
-          this.studData[0].grade_level === '9' ||
-          this.studData[0].grade_level === '10'
-        ) {
-          // Corrected how you add data to the tuitionAndFees array
-          this.tuitionAndFees.push({
-            old_acct: 0.0,
-            tuition_fees: 16143.55,
-            gen_fee: 7970.86,
-            lms_fee: 1750.0,
-            school_subsidy: 0.00,
-            esc: 9000.0,
-          });
-        } else if (
-          this.studData[0].grade_level === '11' ||
-          this.studData[0].grade_level === '12'
-        ) {
-          // Corrected how you add data to the tuitionAndFees array
-          
-            if(this.studData[0].sector === 'Public') {
-              this.tuitionAndFees.push({
-                old_acct: 0.00,
-                tuition_fees: 16143.55,
-                gen_fee: 7221.30,
-                lms_fee: 0.0,
-                school_subsidy: 4114.85,
-                esc: 17500.0,
-              });
-            }
-            else {
-              this.tuitionAndFees.push({
-                old_acct: 0.00,
-                tuition_fees: 16143.55,
-                gen_fee: 7221.30,
-                lms_fee: 0.0,
-                school_subsidy: 4114.85,
-                esc: 14000.0,
-              });
-            }
-        }
+        this.setTuitionBasedOnGrade();
       },
       (error) => {
         console.error('There was an error fetching studProfile:', error);
@@ -86,14 +46,57 @@ export class TuitionFeesComponent implements OnInit {
     );
   }
 
-  fees() {
-    // localStorage.setItem('enrol_id', this.studData[0].enrol_id);
-    // this.route.navigate(['/home/tracking/proof']);
+  setTuitionBasedOnGrade(): void {
+    const grade = this.studData[0].grade_level;
+    const juniorHigh = ['7', '8', '9', '10'];
+    const seniorHigh = ['11', '12'];
 
-    // if(this.studData[0].payment_approval == null) {
+    if (juniorHigh.includes(grade)) {
+      this.addJuniorHighTuition();
+    } else if (seniorHigh.includes(grade)) {
+      const sector = this.studData[0].sector;
+      this.addSeniorHighTuition(sector);
+    }
+  }
+
+  addJuniorHighTuition(): void {
+    this.tuitionAndFees.push({
+      old_acct: 0.0,
+      tuition_fees: 16143.55,
+      gen_fee: 7970.86,
+      lms_fee: 1750.0,
+      school_subsidy: 0.00,
+      esc: 9000.0,
+    });
+  }
+
+  addSeniorHighTuition(sector: string): void {
+    const baseTuition = {
+      old_acct: 0.00,
+      tuition_fees: 16143.55,
+      gen_fee: 7221.30,
+      lms_fee: 0.0,
+      school_subsidy: 4114.85,
+      esc: (sector === 'Public') ? 17500.0 : 14000.0,
+    };
+    this.tuitionAndFees.push(baseTuition);
+  }
+
+  fees(): void {
+
+
+    if(this.studData[0].date_of_payment === null)
+    {
+      console.log(this.tuitionAndFees);
       localStorage.setItem('enrol_id', this.studData[0].enrol_id);
+      localStorage.setItem('tuition', JSON.stringify(this.tuitionAndFees));
       this.route.navigate(['/home/tracking/proof']);
-    // }
-
+    }
+    else {
+      console.log(this.tuitionAndFees);
+      localStorage.setItem('enrol_id', this.studData[0].enrol_id);
+      localStorage.setItem('tuition', JSON.stringify(this.tuitionAndFees));
+      this.route.navigate(['/home/tracking/payment']);
+    }
   }
 }

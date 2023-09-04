@@ -10,9 +10,6 @@ import { Router } from '@angular/router';
 })
 export class StudentprofileComponent {
   studLRN = { studLRN: localStorage.getItem('LRN') };
-
-  // @Output() dataToParent = new EventEmitter<string>();
-
   alert = false;
 
   personinfo = new FormGroup({

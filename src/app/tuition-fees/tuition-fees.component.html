@@ -127,7 +127,7 @@
                                 <td
                                     class="p-3 py-2 font-medium text-gray-900 text-end whitespace-nowrap dark:text-white">
                                     <b>
-                                        {{ (fee.old_acct + fee.tuition_fees + fee.gen_fee + fee.lms_fee - fee.school_subsidy) * 0.40 | number:'1.2-2' }}
+                                        {{ (fee.old_acct + fee.tuition_fees + fee.gen_fee + fee.lms_fee - (fee.esc + fee.school_subsidy)) * 0.40 | number:'1.2-2' }}
                                     </b>
                                 </td>
                             </tr>
@@ -148,7 +148,7 @@
                 <div class="" style="font-size: 18px; text-align: left;">
                     <strong class="text-green-900">
                         For incoming Grade 11
-                    </strong>, ESC Certificate can be use as down payment. Those coming from public school no need to
+                    </strong>, ESC Certificate can be used as down payment. Those coming from public school no need to
                     pay downpayment.
                 </div>
                 <br>
@@ -165,8 +165,8 @@
                     <li>
                         School Cashier
                         <ul class="pl-5 mt-2 space-y-1 list-disc list-inside">
-                            <li>7:30-12:00 A.M. (Mon.to Fri.)</li>
-                            <li>7:30-12:00 A.M. | 1:30-5:00 P.M (Mon.to Thurs.)</li>
+                            <li>7:30 A.M. - 12:00 P.M. (Mon.to Fri.)</li>
+                            <li>7:30 A.M. - 12:00 P.M. | 1:30 P.M. - 5:00 P.M (Mon.to Thurs.)</li>
                         </ul>
                     </li>
                     <li>

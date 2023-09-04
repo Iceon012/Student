@@ -16,21 +16,22 @@
             <h1 class="font-extrabold text-white text-xl">S.Y. 2023 - 2024</h1>
         </div>
     </div>
-    <div class="p-5 border border-blue-900">
+    <div class="p-5">
         <div
-            class="max-w-md sm:max-w-full p-5 bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">
-            <h5 class="text-3xl font-extrabold text-gray-900 text-center">
+            class="max-w-md sm:max-w-full p-4 bg-white rounded-lg shadow-lg  dark:bg-gray-800 dark:border-gray-700">
+            <h5 class="text-3xl text-gray-900 text-center" style="font-family: 'Bebas Neue', sans-serif;
+            font-size: 40px;">
                 STUDENT LOGIN
             </h5>
             <br>
-            <div class="p-3 mb-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert" *ngIf="err">
+            <div class="p-2 mb-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert" *ngIf="err">
                 <span class="font-medium">
                     <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
 
                     You entered an invalid email / reference number!
                 </span>
               </div>
-            <form class=" p-3" [formGroup]="login" (ngSubmit)="onLogin()">
+            <form class=" p-2" [formGroup]="login" (ngSubmit)="onLogin()">
                 <div class="mb-3">
                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         Username
@@ -45,7 +46,7 @@
                     <input type="password" id="password" formControlName="password"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
-                <div class="grid gap-6 mb-2 md:grid-cols-2">
+                <div class="grid gap-6 mb-1 md:grid-cols-2">
                     <div>
                         <button type="submit"
                             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outpne-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
@@ -58,7 +59,7 @@
             </form>
         </div>
         <br>
-        <div class="max-w-md sm:max-w-full p-4 bg-green-100 shadow rounded-lg text-center">
+        <div class="max-w-md sm:max-w-full p-4 bg-green-50 rounded-lg text-center">
             <a routerLink="/signup">
                 <h5 class="mb-3 text-medium font-semibold tracking-tight text-blue-500 dark:text-white">No Login
                     Account? <b>ENROLL NOW</b></h5>
@@ -69,25 +70,22 @@
             </button>
         </div>
         <br>
-        <div class="max-w-md sm:max-w-full p-4 bg-blue-100 text-blue-500 rounded-lg">
+        <div class="max-w-md text-sm sm:max-w-full p-3 bg-blue-100 text-blue-500 rounded-lg">
             <b>For Inquiries please contact:</b>
             <hr>
             academy@nlac.edu.ph
             <br>
-            nfo.nlacacademy@gmail.com
-            <br>
-
             https://www.facebook.com/NLACAcademy
         </div>
     </div>
     <div class="p-5">
-        <div class="max-w-lg sm:max-w-full p-5 bg-green-50 rounded-lg">
-            <h1 class="text-2xl text-extrabold">
+        <div class="max-w-lg sm:max-w-full shadow vh-auto p-4 bg-green-50 rounded-lg" >
+            <h1 class="text-2xl text-extrabold text-center" style="font-family: 'Alumni Sans', sans-serif;
+            font-size: 30px;">
                 <b>ENROLLMENT PROCEDURE</b>
             </h1>
-            <br>
-            <div class="p-3 text-medium">
-                <p>1. Register onpne.(LRN required)</p>
+            <div class="p-3 text-medium" id="enrol">
+                <p>1. Register online.(LRN required)</p>
                 <p>2. Fill out the vaccination form.(vaccinated applicants only).</p>
                 <p>3. DOWNLOAD,PRINT & SIGN the Student's/Parent’s Guidelines Contract Form
                     <a href=""><b class="text-blue-500">Downloadable Student Contract</b></a>
@@ -101,13 +99,13 @@
                 <p>9. Confirm your registration at the Academy Registrar</p>
                 <p>10. Congratulations! You are now officially enrolled. WELCOME TO the NLAC family</p>
             </div>
-        </div>
-        <hr>
-        <div class="max-w-lg sm:max-w-full bg-blue-100 rounded-lg text-center">
-            <div class="p-3 text-medium">
+            <div class="max-w-lg sm:max-w-full bg-blue-100 rounded-lg text-center">
+            <div class="p-3 text-medium" id="enrol">
                 <b>Note:</b> A verification message will be sent to the email address you've provided.
             </div>
         </div>
+        </div>
+        
     </div>
 </div>
 

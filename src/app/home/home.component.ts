@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-home',
@@ -8,14 +9,21 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
 
-  constructor(private route: Router) {
+  studData:any;
+
+  constructor(private route: Router, private dataService: DataService) {
+  }
+
+  ngOnInit(): void{
   }
 
   logout() {
-    const confirmation = confirm("Do you want to Log-out?")
-    if(confirmation) {
+    // const confirmation = confirm("Do you want to Log-out?")
+    // if(confirmation) {
       localStorage.removeItem('LRN')
+      localStorage.removeItem('enrol_id')
+      localStorage.removeItem('regdate')
       this.route.navigate(['login'])
-    }
+    // }
   }
 }

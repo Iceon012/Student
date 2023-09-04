@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpEventType } from '@angular/common/http';
 import { EnrollmentService } from '../enrollment.service';
 import { DataService } from '../data.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,20 +14,37 @@ export class ProofComponent {
   list = ['12:30 PM', '1:00 AM']
   isEditable = true
 
-  enrol_id = {id:localStorage.getItem("enrol_id")};
+  enrol_id = { id: localStorage.getItem("enrol_id") };
+  storedArray = { tuition: localStorage.getItem("tuition") };
+  
 
   url = "./assets/receipt.jpg";
   image: any
+  tuitionData:any
   selectedFile: any
   uploading: any
   progress: any
   images: any
   en_id : any
+  proof: any
 
-  constructor( private http: HttpClient, private post: EnrollmentService, private dataService: DataService) { }
+  showBTN = false
+
+  constructor( private http: HttpClient, private post: EnrollmentService, private route: Router, private dataService: DataService) { }
 
   ngOnInit(): void {
+
+    this.tuitionData = this.storedArray.tuition ? JSON.parse(this.storedArray.tuition) : [];
+
+
     console.log(this.enrol_id.id);
+    console.log(this.tuitionData)
+
+    
+    // if(this.tuitionData.length == 0) {
+    //   this.route.navigate(['/home/tracking/tuition-fees'])
+    // }
+
     this.en_id = this.enrol_id.id;
     
     this.post.getData(this.en_id).subscribe((result: any) => {
@@ -36,6 +54,12 @@ export class ProofComponent {
 
       this.dataService.changeData(this.images);
 
+    });
+
+    this.post.getProof(this.en_id).subscribe((result: any) => {
+      console.log(result.data)
+
+      this.proof = result.data
     });
     
   }
@@ -54,6 +78,10 @@ export class ProofComponent {
 
       this.image = e.target.files[0];
       console.log(this.image)
+
+      if(this.image != null) {
+        this.showBTN = true
+      }
     }
   }
 

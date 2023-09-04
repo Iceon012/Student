@@ -13,6 +13,10 @@ export class EnrollmentService {
     return this.http.get(this.url + 'getPayment.php?en_id=' + pid);
   }
 
+  getProof(pid: any) {
+    return this.http.get(this.url + 'proof.php?en_id=' + pid);
+  }
+
   getPayment(pid: any) {
     return this.http.get(this.url + 'payment.php?en_id=' + pid);
   }

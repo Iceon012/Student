@@ -1,35 +1,53 @@
-<div class="lg:max-w-full" >
+<div class="lg:max-w-full">
     <h1 class="text-xl font-extrabold text-blue-900 mb-3 lg:text-3xl">PROOF OF PAYMENT</h1>
-    <div *ngFor="let p of images" >
-        <div *ngIf="p.proof_payment != null" class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert"  >
-            <span class="font-medium">Uploaded Successfuly</span> on <b>{{p.date_of_payment}}</b>
-          </div>
-    </div>
-
     <div class="grid gap-4 md:grid-cols-2">
         <div>
+            <br>
             <form>
-                
-                
+
+
                 <input
                     class="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                     id="large_size" type="file" id="formFile" (change)="onFileSelected($event)">
                 <br>
-                <img  *ngFor="let p of images"  class="h-auto max-w-full rounded-lg shadow" [src]="p.proof_payment" alt="image description">
+
+                <div class="grid gap-4" style="overflow-x: auto; height: 420px;">
+                    <div *ngFor="let p of images">
+                        <img class="h-auto max-w-full rounded-lg" [src]="p.proof_payment" alt="">
+                    </div>
+<br>
+                    <div *ngFor="let p of proof">
+                        <img class="h-auto max-w-full rounded-lg" [src]="p.img" alt="">
+                        <figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">
+                            <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-blue-400">
+                                Uploaded on {{p.date_of_payment}}
+                            </span>
+                        </figcaption>
+
+                    </div>
+                </div>
+
+                <!-- <img *ngFor="let p of images" class="h-auto max-w-full rounded-lg shadow" [src]="p.proof_payment"
+                    alt="image description"> -->
                 <!-- <div class="progress" *ngIf="progress == 100">
-                    <div 
-                        class="progress-bar" 
-                        role="progressbar" 
-                        [style.width.%]="progress" 
-                        [attr.aria-valuenow]="progress" 
-                        aria-valuemin="0" 
-                        aria-valuemax="100"
-                    >
+                    <div class="progress-bar" role="progressbar" [style.width.%]="progress"
+                        [attr.aria-valuenow]="progress" aria-valuemin="0" aria-valuemax="100">
                         {{ progress }}
                     </div>
                 </div> -->
-                
-                <button type="button" (click)="onPost()"
+                <!-- <br>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="grid gap-4" *ngFor="let p of proof">
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg" [src]="p.img" alt="">
+                        </div>
+                    </div>
+
+                </div> -->
+
+
+                <button type="button" (click)="onPost()" *ngIf="showBTN"
                     class="text-white mt-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Submit
                 </button>
@@ -37,6 +55,81 @@
         </div>
 
         <div>
+            <div class="relative overflow-x-auto">
+                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                Financial Details
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-end">
+                                Amount
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let tuition of tuitionData ">
+                        <tr class="bg-white dark:bg-gray-800">
+                            <th scope="row"
+                                class="px-6 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                Tuition & Fees:
+                            </th>
+                            <td class="px-6 py-1 text-end">
+                                {{tuition.tuition_fees | currency: 'PHP'}}
+                            </td>
+                        </tr>
+                        <tr class="bg-white dark:bg-gray-800">
+                            <th scope="row"
+                                class="px-6 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                General and Mics. Fee:
+                            </th>
+                            <td class="px-6 py-1 text-end">
+                                {{tuition.gen_fee | currency: 'PHP'}}
+                            </td>
+                        </tr>
+                        <tr class="bg-white dark:bg-gray-800">
+                            <th scope="row"
+                                class="px-6 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                LMS Fee:
+                            </th>
+                            <td class="px-6 py-1 text-end">
+                                {{tuition.lms_fee | currency: 'PHP'}}
+                            </td>
+                        </tr>
+                        <tr class="bg-white dark:bg-gray-800">
+                            <th scope="row"
+                                class="px-6 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white text-end">
+                                Less ESC:
+                            </th>
+                            <td class="px-6 py-1 text-end">
+                                {{tuition.esc | currency: 'PHP'}}
+                            </td>
+                        </tr>
+                        <tr class="bg-white dark:bg-gray-800">
+                            <th scope="row"
+                                class="px-6 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white text-end">
+                                Less School Subsidy:
+                            </th>
+                            <td class="px-6 py-1 text-end">
+                                {{tuition.school_subsidy | currency: 'PHP'}}
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot *ngFor="let tuition of tuitionData ">
+                        <tr class="font-semibold text-gray-900 dark:text-white">
+                            <th scope="row" class="px-6 py-2 text-base">Amount to Pay:</th>
+                            <td class="px-6 py-2 text-end"> {{(tuition.old_acct + tuition.tuition_fees + tuition.gen_fee
+                                + tuition.lms_fee - (tuition.esc + tuition.school_subsidy)) | currency: 'PHP'}}</td>
+                        </tr>
+                        <tr class="font-semibold bg-green-100 text-gray-900 dark:text-white">
+                            <th scope="row" class="px-6 py-2 text-base">Downpayment:</th>
+                            <td class="px-6 py-2 text-end"> {{ (tuition.old_acct + tuition.tuition_fees +
+                                tuition.gen_fee + tuition.lms_fee - (tuition.esc + tuition.school_subsidy)) * 0.40 |
+                                currency: 'PHP'}}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <br>
             <div class="block max-w-full p-6 rounded-lg bg-blue-50">
                 <div class="" style="font-size: 18px; text-align: left;">
                     <strong class="text-grey-400">
