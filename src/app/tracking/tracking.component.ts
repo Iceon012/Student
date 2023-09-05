@@ -52,7 +52,7 @@ export class TrackingComponent implements OnInit {
     if (this.studData[0].payment_approval !== null) {
       this.route.navigate(['/home/tracking/payment']);
     } else if (this.studData[0].regapproval_date !== null) {
-        this.route.navigate(['/home/tracking/payment']); 
+        this.route.navigate(['/home/tracking/approved']); 
     }  else {
         this.route.navigate(['/home/tracking/tuition-fees']);
     }

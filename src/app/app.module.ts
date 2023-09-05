@@ -25,6 +25,8 @@ import { ReferenceComponent } from './reference/reference.component';
 import { GradesComponent } from './grades/grades.component';
 import { RosterComponent } from './roster/roster.component';
 import { ApprovedComponent } from './approved/approved.component';
+import { SubjectsComponent } from './subjects/subjects.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { ApprovedComponent } from './approved/approved.component';
     ReferenceComponent,
     GradesComponent,
     RosterComponent,
-    ApprovedComponent
+    ApprovedComponent,
+    SubjectsComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule,

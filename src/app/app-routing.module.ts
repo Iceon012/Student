@@ -17,6 +17,9 @@ import { authGuard } from './auth.guard';
 import { GradesComponent } from './grades/grades.component';
 import { RosterComponent } from './roster/roster.component';
 import { ApprovedComponent } from './approved/approved.component';
+import { RequirementsComponent } from './requirements/requirements.component';
+import { BalanceComponent } from './balance/balance.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 const routes: Routes = [
   { path: 'enrollment', component: EnrollmentComponent },
@@ -56,9 +59,12 @@ const routes: Routes = [
       {path: 'subject', component:SubjectComponent},
       { path: 'grade', component:GradesComponent},
       { path: 'roster', component: RosterComponent},
+      { path: 'requirements', component:RequirementsComponent},
+      { path: 'balance', component:BalanceComponent},
+      {path: 'sched', component:ScheduleComponent},
       {
         path: '',
-        redirectTo: 'subject',
+        redirectTo: 'sched',
         pathMatch: 'full',
       }
     ]

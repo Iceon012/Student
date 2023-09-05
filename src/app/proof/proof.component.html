@@ -1,16 +1,11 @@
-<div class="lg:max-w-full">
-    <h1 class="text-xl font-extrabold text-blue-900 mb-3 lg:text-3xl">PROOF OF PAYMENT</h1>
+<div class="lg:max-w-full mt-4">
     <div class="grid gap-4 md:grid-cols-2">
         <div>
-            <br>
             <form>
 
 
-                <input
-                    class="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                    id="large_size" type="file" id="formFile" (change)="onFileSelected($event)">
-                <br>
 
+<!-- 
                 <div class="grid gap-4" style="overflow-x: auto; height: 420px;">
                     <div *ngFor="let p of images">
                         <img class="h-auto max-w-full rounded-lg" [src]="p.proof_payment" alt="">
@@ -25,17 +20,11 @@
                         </figcaption>
 
                     </div>
-                </div>
-
-                <!-- <img *ngFor="let p of images" class="h-auto max-w-full rounded-lg shadow" [src]="p.proof_payment"
-                    alt="image description"> -->
-                <!-- <div class="progress" *ngIf="progress == 100">
-                    <div class="progress-bar" role="progressbar" [style.width.%]="progress"
-                        [attr.aria-valuenow]="progress" aria-valuemin="0" aria-valuemax="100">
-                        {{ progress }}
-                    </div>
                 </div> -->
-                <!-- <br>
+
+                <img *ngFor="let p of images" class="h-auto max-w-full rounded-lg shadow" [src]="p.proof_payment"
+                    alt="image description">
+                <br>
 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="grid gap-4" *ngFor="let p of proof">
@@ -44,8 +33,23 @@
                         </div>
                     </div>
 
-                </div> -->
-
+                </div>
+                <br>
+                <input
+                class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                id="large_size" type="file" id="formFile" (change)="onFileSelected($event)">
+                <br>
+                <div class="progress" *ngIf="progress == 100">
+                    <br>
+                    <div class="progress-bar" role="progressbar" [style.width.%]="progress"
+                        [attr.aria-valuenow]="progress" aria-valuemin="0" aria-valuemax="100">
+                        {{ progress }}
+                    </div>
+                </div>
+                <br>
+                <div *ngIf="showBTN">
+                    <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Amount" required>
+                </div>
 
                 <button type="button" (click)="onPost()" *ngIf="showBTN"
                     class="text-white mt-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -116,11 +120,11 @@
                     </tbody>
                     <tfoot *ngFor="let tuition of tuitionData ">
                         <tr class="font-semibold text-gray-900 dark:text-white">
-                            <th scope="row" class="px-6 py-2 text-base">Amount to Pay:</th>
+                            <th scope="row" class="px-6 py-2 text-base">Balance:</th>
                             <td class="px-6 py-2 text-end"> {{(tuition.old_acct + tuition.tuition_fees + tuition.gen_fee
                                 + tuition.lms_fee - (tuition.esc + tuition.school_subsidy)) | currency: 'PHP'}}</td>
                         </tr>
-                        <tr class="font-semibold bg-green-100 text-gray-900 dark:text-white">
+                        <tr class="font-semibold bg-green-200 p-4 text-gray-900 dark:text-white">
                             <th scope="row" class="px-6 py-2 text-base">Downpayment:</th>
                             <td class="px-6 py-2 text-end"> {{ (tuition.old_acct + tuition.tuition_fees +
                                 tuition.gen_fee + tuition.lms_fee - (tuition.esc + tuition.school_subsidy)) * 0.40 |
@@ -129,9 +133,8 @@
                     </tfoot>
                 </table>
             </div>
-            <br>
-            <div class="block max-w-full p-6 rounded-lg bg-blue-50">
-                <div class="" style="font-size: 18px; text-align: left;">
+            <div class="block max-w-full p-4 text-xs rounded mt-3">
+                <div class="" style="font-size: 15px; text-align: left;">
                     <strong class="text-grey-400">
                         Payment could be made through:</strong>
                 </div>
