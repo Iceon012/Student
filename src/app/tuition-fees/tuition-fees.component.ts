@@ -85,18 +85,18 @@ export class TuitionFeesComponent implements OnInit {
   fees(): void {
 
 
-    if(this.studData[0].date_of_payment === null)
+    if(this.studData[0].payment_approval !== null)
     {
       console.log(this.tuitionAndFees);
       localStorage.setItem('enrol_id', this.studData[0].enrol_id);
       localStorage.setItem('tuition', JSON.stringify(this.tuitionAndFees));
-      this.route.navigate(['/home/tracking/proof']);
+      this.route.navigate(['/home/tracking/payment']);
     }
     else {
       console.log(this.tuitionAndFees);
       localStorage.setItem('enrol_id', this.studData[0].enrol_id);
       localStorage.setItem('tuition', JSON.stringify(this.tuitionAndFees));
-      this.route.navigate(['/home/tracking/payment']);
+      this.route.navigate(['/home/tracking/proof']);
     }
   }
 }

@@ -1,8 +1,9 @@
-<div class="grid lg:grid-cols-3">
-    <div class="bg-blue-900 vh-auto p-3 shadow-lg"
+<div class="grid lg:grid-cols-12 gap-0">
+    <div class="bg-blue-900 vh-auto p-3 shadow-lg lg:col-span-4"
         style="background-image: url('assets/login.jpg'); background-size: cover; background-position: center center; height: 100%;">
         <div class=" mx-auto max-w-screen-2xl text-center py-24 lg:py-24">
-            <h1 class=" text-sm font-bold text-white lg:text-xl ">
+            <p>dsadas</p>
+            <h1 class=" text-xl font-bold text-white lg:text-xl ">
                 <div class="flex items-center justify-center">
                     <img src="assets/logo.png" alt="Descriptive Alt Text" width="150">
                 </div>
@@ -11,36 +12,36 @@
             </h1>
             <br><br>
             <h1
-                class="mb-4 text-5xl font-extrabold tracking-tight leading-none text-yellow-300 md:text-5xl lg:text-5xl">
+                class="mb-2 text-6xl font-extrabold tracking-tight leading-none text-yellow-300 md:text-6xl lg:text-6xl">
                 ONLINE REGISTRATION</h1>
-            <h1 class="font-extrabold text-white text-xl">S.Y. 2023 - 2024</h1>
+            <h1 class="font-extrabold text-white text-2xl">S.Y. 2023 - 2024</h1>
         </div>
     </div>
-    <div class="p-5">
-        <div
-            class="max-w-md sm:max-w-full p-4 bg-white rounded-lg shadow-lg  dark:bg-gray-800 dark:border-gray-700">
+    <div class="p-5 lg:col-span-4">
+        <div class="max-w-md sm:max-w-full p-4 bg-white rounded-lg shadow  dark:bg-gray-800 dark:border-gray-700">
             <h5 class="text-3xl text-gray-900 text-center" style="font-family: 'Bebas Neue', sans-serif;
             font-size: 40px;">
                 STUDENT LOGIN
             </h5>
             <br>
-            <div class="p-2 mb-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert" *ngIf="err">
+            <div class="p-2 mb-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                role="alert" *ngIf="err">
                 <span class="font-medium">
                     <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
 
                     You entered an invalid email / reference number!
                 </span>
-              </div>
+            </div>
             <form class=" p-2" [formGroup]="login" (ngSubmit)="onLogin()">
                 <div class="mb-3">
-                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    <label for="email" class="block mb-2 text-medium font-medium text-gray-900 dark:text-white">
                         Username
                     </label>
                     <input type="text" id="email" formControlName="email"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
                 <div class="mb-6">
-                    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    <label for="password" class="block mb-2 text-medium font-medium text-gray-900 dark:text-white">
                         Registration Reference Number
                     </label>
                     <input type="password" id="password" formControlName="password"
@@ -59,7 +60,7 @@
             </form>
         </div>
         <br>
-        <div class="max-w-md sm:max-w-full p-4 bg-green-50 rounded-lg text-center">
+        <div class="max-w-md sm:max-w-full p-5 rounded-lg text-center">
             <a routerLink="/signup">
                 <h5 class="mb-3 text-medium font-semibold tracking-tight text-blue-500 dark:text-white">No Login
                     Account? <b>ENROLL NOW</b></h5>
@@ -70,7 +71,7 @@
             </button>
         </div>
         <br>
-        <div class="max-w-md text-sm sm:max-w-full p-3 bg-blue-100 text-blue-500 rounded-lg">
+        <div class="max-w-md text-lg sm:max-w-full p-5 bg-blue-100 text-blue-500 rounded-lg">
             <b>For Inquiries please contact:</b>
             <hr>
             academy@nlac.edu.ph
@@ -78,8 +79,8 @@
             https://www.facebook.com/NLACAcademy
         </div>
     </div>
-    <div class="p-5">
-        <div class="max-w-lg sm:max-w-full shadow vh-auto p-4 bg-green-50 rounded-lg" >
+    <div class="p-5 lg:col-span-4">
+        <div class="max-w-lg sm:max-w-full shadow vh-auto p-4 bg-green-50 rounded-lg">
             <h1 class="text-2xl text-extrabold text-center" style="font-family: 'Alumni Sans', sans-serif;
             font-size: 30px;">
                 <b>ENROLLMENT PROCEDURE</b>
@@ -99,58 +100,125 @@
                 <p>9. Confirm your registration at the Academy Registrar</p>
                 <p>10. Congratulations! You are now officially enrolled. WELCOME TO the NLAC family</p>
             </div>
-            <div class="max-w-lg sm:max-w-full bg-blue-100 rounded-lg text-center">
+
+        </div>
+        <br>
+        <div class="max-w-lg sm:max-w-full bg-blue-100 shadow vh-auto p-4 rounded-lg text-center">
             <div class="p-3 text-medium" id="enrol">
                 <b>Note:</b> A verification message will be sent to the email address you've provided.
             </div>
         </div>
-        </div>
-        
+
     </div>
 </div>
 
 <!-- Extra Large Modal -->
-<div id="extralarge-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+<div id="extralarge-modal" tabindex="-1"
+    class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative w-full max-w-7xl max-h-full">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <!-- Modal header -->
-            <div class="flex items-center justify-between p-5 border-b rounded-t dark:border-gray-600">
+            <div class="flex items-center justify-between p-3 border-b rounded-t dark:border-gray-600">
                 <h3 class="text-xl font-medium text-gray-900 dark:text-white">
-                    Extra Large modal
+                    Admission Requirements
                 </h3>
-                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="extralarge-modal">
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                <button type="button"
+                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                    data-modal-hide="extralarge-modal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
                     </svg>
                     <span class="sr-only">Close modal</span>
                 </button>
             </div>
             <!-- Modal body -->
             <div class="p-6 space-y-6">
-                <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                    With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
-                </p>
-                <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                    The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
-                </p>
-                <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                    With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
-                </p>
-                <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                    The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
-                </p>
-                <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                    With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
-                </p>
-                <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                    The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
-                </p>
+                <div class="bg-light">
+                    <div class="row px-4  py-2">
+                        <ul class="list-group col-12">
+                            <li class="list-group-item list-group-item-info h6"><b>A. JUNIOR/SENIOR HIGH SCHOOL (FOR
+                                    NEW STUDENTS ONLY)</b>
+                            </li>
+                            <li class="list-group-item">
+                                <ul>
+                                    <li>Photocopy of PSA Birth Certificate (4 copies with parent/guardian’s
+                                        signature)</li>
+                                    <li>Good Moral Certificate</li>
+                                    <li>Original Copy of SF9/F138/ Report Card</li>
+                                    <li>Original Copy of SF10/F137 (<b>claim request letter at the Academy
+                                            Registrar’s Office</b>)</li>
+                                    <li>ESC Certificate (<strong>for Grade 8-12 transferees from Private-ESC
+                                            institutions only</strong>)</li>
+                                    <li>Recent 2x2 ID Picture (<b>white background; 4 copies</b>)</li>
+                                    <li>Photocopy of vaccination card (<b>OPTIONAL; If the student is
+                                            vaccinated</b>)</li>
+                                    <li>Duly signed and accomplished Student’s/Parent’s Guidelines Contract Form.
+                                        (<b>Print your Contract form on a legal (8.5x13) sized bond paper for
+                                            presentation and submission to the Academy Office.</b>)</li>
+                                </ul>
+                            </li>
+                            <li class="list-group-item"><b>(For GRADE 7 Applicants ONLY) APPLICATION FOR ESC
+                                    (Educational Service Contracting).</b></li>
+                            <ul>
+                                <li>Latest Income Tax Return for the previous year or Certificate of Tax Exemption
+                                    or Municipal Certification of Unemployment of Parents/Legal Guardian (for
+                                    incoming Grade 7 only) <br><b>NOTE: <u>ESC Application Form</u> will be provided
+                                        by the Academy Registrar.</b><br><br>
+                                    For more details please visit our fb page to set an appointment with our working
+                                    staff: <a
+                                        href="https://www.facebook.com/NLACAcademy">https://www.facebook.com/NLACAcademy</a>
+                                    or visit the Academy Office.
+                                </li>
+                            </ul>
+
+                        </ul>
+                    </div>
+                    <div class="row px-4  py-2">
+                        <ul class="list-group col-12">
+                            <li class="list-group-item list-group-item-info h6"><b>B. OLD/RETURNING STUDENTS</b>
+                            </li>
+                            <li class="list-group-item">
+                                <ul>
+                                    <li>Duly signed and accomplished Student’s/Parent’s Guidelines Contract Form.
+                                        (<b>Print your Contract form on a legal (8.5x13) sized bond paper for
+                                            presentation and submission to the Academy Office</b>)</li>
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="row px-4 py-2">
+                            <ul class="list-group col-12">
+                                <li class="list-group-item list-group-item-info h6"><b>C. FOR FOREIGN STUDENTS</b>
+                                </li>
+                                <li class="list-group-item">
+                                    <ul>
+                                        <li>Duly accomplished Student’s Personal History Statement(PHS)</li>
+                                        <li>A notarized affidavit of support or notarized notice of scholarship
+                                            grant.</li>
+                                        <li>Authenticated student’s scholastic records by the Department of Foreign
+                                            Affairs or counterpart agency from country of origin</li>
+                                        <li>Student passport and Birth Certificate</li>
+                                        <li>Letter of Sponsorship with contact number</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- Modal footer -->
             <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                <button data-modal-hide="extralarge-modal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">I accept</button>
-                <button data-modal-hide="extralarge-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button>
+                <button data-modal-hide="extralarge-modal" type="button"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">I
+                    accept</button>
+                <button data-modal-hide="extralarge-modal" type="button"
+                    class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button>
             </div>
         </div>
     </div>

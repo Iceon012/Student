@@ -29,13 +29,14 @@ export class LoginComponent {
     this.post.StudLogin(this.login.value).subscribe((result:any)=>{
       console.log(result);
 
-      if(result == 0) {
+      if(result.error == "err") {
         this.err = !this.err
       }
       else if(result.regdate != null) {
         this.err = false
         localStorage.setItem("LRN",result.lrn);
         localStorage.setItem("regdate",result.regdate);
+        localStorage.setItem("Name",result.name);
         this.route.navigate(['/dash']);
       }
       else {

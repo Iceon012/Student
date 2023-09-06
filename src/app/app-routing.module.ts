@@ -20,6 +20,7 @@ import { ApprovedComponent } from './approved/approved.component';
 import { RequirementsComponent } from './requirements/requirements.component';
 import { BalanceComponent } from './balance/balance.component';
 import { ScheduleComponent } from './schedule/schedule.component';
+import { AccountComponent } from './account/account.component';
 
 const routes: Routes = [
   { path: 'enrollment', component: EnrollmentComponent },
@@ -60,6 +61,7 @@ const routes: Routes = [
       { path: 'grade', component:GradesComponent},
       { path: 'roster', component: RosterComponent},
       { path: 'requirements', component:RequirementsComponent},
+      { path: 'account', component:AccountComponent},
       { path: 'balance', component:BalanceComponent},
       {path: 'sched', component:ScheduleComponent},
       {

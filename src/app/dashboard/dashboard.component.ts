@@ -8,10 +8,12 @@ import { Component } from '@angular/core';
 export class DashboardComponent {
 
   studLRN = {id:localStorage.getItem('LRN')}
+  studName = {name:localStorage.getItem('Name')}
 
   
   ngOnInit(): void{
     console.log(this.studLRN.id)
+    console.log(this.studName.name)
   }
 
 }

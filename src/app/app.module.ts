@@ -27,6 +27,7 @@ import { RosterComponent } from './roster/roster.component';
 import { ApprovedComponent } from './approved/approved.component';
 import { SubjectsComponent } from './subjects/subjects.component';
 import { ScheduleComponent } from './schedule/schedule.component';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { ScheduleComponent } from './schedule/schedule.component';
     RosterComponent,
     ApprovedComponent,
     SubjectsComponent,
-    ScheduleComponent
+    ScheduleComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
