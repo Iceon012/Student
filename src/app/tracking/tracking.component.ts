@@ -48,13 +48,25 @@ export class TrackingComponent implements OnInit {
   handleRouting() {
     // Set the local storage item once, since it's used in every condition
     localStorage.setItem('enrol_id', this.studData[0].enrol_id);
-    if (this.studData[0].date_of_payment !== null) {
-      this.route.navigate(['/home/tracking/proof']);
+
+    if (this.studData[0].regapproval_date !== null) {
+      this.route.navigate(['/home/tracking/approved']);
     }
-    else if (this.studData[0].date_of_payment === null) {
+
+    else if (this.studData[0].payment_approval !== null) {
+      this.route.navigate(['/home/tracking/payment']);
+    }
+
+    else if (this.studData[0].date_of_payment !== null) {
       this.route.navigate(['/home/tracking/tuition-fees']);
-    } else if (this.studData[0].regapproval_date !== null) {
-        this.route.navigate(['/home/tracking/approved']); 
+    }
+
+    else if (this.studData[0].date_register !== null) {
+      this.route.navigate(['/home/tracking/studentprofile']);
+    } 
+
+    else {
+        this.route.navigate(['/home/tracking/studentprofile']); 
     } 
 }
 

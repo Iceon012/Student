@@ -2,7 +2,7 @@
   <div class="bg-white lg:col-span-3 sm:max-w-full " *ngFor="let a of studData">
 
     <!-- drawer init and toggle -->
-    <div class="text-left lg:hidden mb-6">
+    <!-- <div class="text-left lg:hidden mb-6">
       <button type="button" class="text-blue-900 font-extrabold" type="button" data-drawer-target="drawer-left-example"
         data-drawer-show="drawer-left-example" data-drawer-placement="left" aria-controls="drawer-left-example">
         <span class="sr-only">Open sidebar</span>
@@ -13,7 +13,7 @@
           </path>
         </svg>
       </button>
-    </div>
+    </div> -->
 
     <!-- drawer component -->
     <div id="drawer-left-example"
@@ -27,8 +27,8 @@
         </svg>
         <span class="sr-only">Close menu</span>
       </button>
-      <div style="padding-left: 3rem;">
-        <ol class="relative text-gray-500 border-l border-gray-200 dark:border-gray-700 dark:text-gray-400 mt-5">
+      <div style="padding-left: 3rem;" class="mb-5">
+        <ol class="relative text-gray-500 border-l border-gray-200 dark:border-gray-700 dark:text-gray-400" style="padding-top: 8rem;">
           <li class="mb-10 ml-6">
             <span
               class="absolute flex items-center justify-center w-8 h-8 bg-green-200 rounded-full -left-4 ring-4 ring-white dark:ring-gray-900 dark:bg-green-900">

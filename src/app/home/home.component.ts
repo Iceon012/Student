@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
+import { EnrollmentService } from '../enrollment.service';
 
 @Component({
   selector: 'app-home',
@@ -11,10 +12,20 @@ export class HomeComponent {
 
   studData:any;
 
-  constructor(private route: Router, private dataService: DataService) {
-  }
+  constructor(
+    private post: EnrollmentService,
+    private route: Router,
+    private dataService: DataService
+  ) {}
 
-  ngOnInit(): void{
+  ngOnInit(): void {
+    this.dataService.currentData.subscribe(data => {
+      if (data) {
+        console.log(data);
+        this.studData = data;
+        // this.handleRouting();
+      }
+    });
   }
 
   logout() {
