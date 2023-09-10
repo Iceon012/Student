@@ -27,7 +27,7 @@ export class LoginComponent {
   onLogin() {
 
     this.post.StudLogin(this.login.value).subscribe((result:any)=>{
-      console.log(result);
+      console.log(result.name);
 
       if(result.error == "err") {
         this.err = !this.err
@@ -41,6 +41,7 @@ export class LoginComponent {
       }
       else {
         this.err = false
+        localStorage.setItem("Name",result.name);
         localStorage.setItem("LRN",result.lrn);
         this.route.navigate(['/home']);
       }

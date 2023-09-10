@@ -11,8 +11,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./proof.component.css']
 })
 export class ProofComponent {
-  list = ['12:30 PM', '1:00 AM']
   isEditable = true
+  editorOptions: any
+
+  editorContent: any;
+
+editor() {
+  this.editorOptions = {
+    toolbar: [
+      ['bold', 'italic', 'underline', 'strike'],
+      ['blockquote', 'code-block'],
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+      // ... more options here
+    ]
+  };
+}
+  
 
   enrol_id = { id: localStorage.getItem("enrol_id") };
   storedArray = { tuition: localStorage.getItem("tuition") };

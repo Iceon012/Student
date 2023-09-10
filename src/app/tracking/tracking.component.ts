@@ -12,6 +12,8 @@ import { DataService } from '../data.service';
 })
 export class TrackingComponent implements OnInit {
   studLRN = { LRN: localStorage.getItem('LRN') };
+  studName = {name:localStorage.getItem('Name')}
+
   studData: any;
 
   constructor(
