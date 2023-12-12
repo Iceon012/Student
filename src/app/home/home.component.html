@@ -1,4 +1,4 @@
-<nav class="fixed top-0 z-50 w-full border-b border-gray-200 shadow-sm bg-blue-900 dark:bg-gray-800 dark:border-gray-700">
+<nav class=" top-0 z-50 w-full  shadow-sm bg-blue-900 dark:bg-gray-800 dark:border-gray-700">
   <div class="px-3 py-3 lg:px-5 lg:pl-3">
     <div class="flex items-center justify-between">
       <div class="flex items-center justify-start">
@@ -53,17 +53,7 @@
                   role="menuitem">Dashboard</a>
               </li>
               <li>
-                <a href="#"
-                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                  role="menuitem">Settings</a>
-              </li>
-              <li>
-                <a href="#"
-                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                  role="menuitem">Earnings</a>
-              </li>
-              <li>
-                <a href="#"
+                <a (click)="logout()"
                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                   role="menuitem">Sign out</a>
               </li>
@@ -75,8 +65,8 @@
   </div>
 </nav>
 
-<div class="p-4 ">
-  <div class="p-4 rounded-lg dark:border-gray-700 mt-14">
+<div>
+  <div class="rounded-lg dark:border-gray-700">
     <router-outlet></router-outlet>
   </div>
 </div>

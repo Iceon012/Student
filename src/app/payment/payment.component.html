@@ -27,7 +27,7 @@
   </div>
   <figure class="max-w-lg">
     <img class="h-auto max-w-full rounded-lg" [src]="data.img" alt="image description">
-    
+
   </figure>
 </div> -->
 
@@ -45,7 +45,7 @@ role="alert">
 <span class="sr-only">Info</span>
 <div>
   <h1 class="text-xl">
-    Your payment of  has been approved.
+    Congratulations! Your payment of P1,020.00 has been approved by DSF. Well done!
     <!-- {{data.date_of_payment}} -->
   </h1>
 
@@ -56,12 +56,7 @@ role="alert">
 <div class="grid grid-cols-2 gap-2" style="overflow-x: auto; height: 550px;">
 
   <div *ngFor="let data of pay">
-    <img class="h-auto max-w-full rounded-lg" [src]="data.img" alt="">
-    <figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">
-      <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-blue-400">
-        OR#{{data.OR_number}} || P{{data.amount_paid}}
-    </span>
-    </figcaption>
+    <img class="h-auto max-w-full rounded-lg" width="150" [src]="data.img" alt="">
 </div>
 </div>
 

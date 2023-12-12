@@ -24,8 +24,8 @@ export class SignupComponent {
     fname : new FormControl(null),
     middle : new FormControl(null),
     bdate : new FormControl(null),
-    grade: new FormControl("7"),
-    strand: new FormControl("ABM")
+    grade: new FormControl(null),
+    strand: new FormControl(null)
   })
 
 
@@ -38,12 +38,12 @@ export class SignupComponent {
   selectedGrade(grade: any) {
     this.selectedValue = grade.target.value;
 
-    if(this.selectedValue === '7' || this.selectedValue === '8' || 
+    if(this.selectedValue === '7' || this.selectedValue === '8' ||
     this.selectedValue === '9' || this.selectedValue === '10') {
-      
-      this.register.controls['strand'].setValue(null); 
+
+      this.register.controls['strand'].setValue(null);
     }
-    
+
     this.updateStrandBasedOnGrade();
     console.log(this.selectedValue);
   }
@@ -64,7 +64,7 @@ export class SignupComponent {
         console.log(this.register.value.LRN)
         this.LRN2 = this.register.value.LRN;
         localStorage.setItem("LRN", this.LRN2);
-        this.route.navigate(['/reference']);        
+        this.route.navigate(['/reference']);
       }
 
       else if(result == "3") {

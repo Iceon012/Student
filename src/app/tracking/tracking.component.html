@@ -1,19 +1,5 @@
-<div class="grid lg:grid-cols-12">
-  <div class="bg-white lg:col-span-3 sm:max-w-full " *ngFor="let a of studData">
-
-    <!-- drawer init and toggle -->
-    <!-- <div class="text-left lg:hidden mb-6">
-      <button type="button" class="text-blue-900 font-extrabold" type="button" data-drawer-target="drawer-left-example"
-        data-drawer-show="drawer-left-example" data-drawer-placement="left" aria-controls="drawer-left-example">
-        <span class="sr-only">Open sidebar</span>
-        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg">
-          <path clip-rule="evenodd" fill-rule="evenodd"
-            d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
-          </path>
-        </svg>
-      </button>
-    </div> -->
+<div class="grid lg:grid-cols-12 mt-10 p-6">
+  <div class="lg:col-span-3 sm:max-w-full " *ngFor="let a of studData">
 
     <!-- drawer component -->
     <div id="drawer-left-example"
@@ -45,7 +31,7 @@
             <p class="text-sm text-blue-500 mt-2" *ngIf="a.date_register != null">
               <span
                 class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
-                Approval Date: {{a.date_register}}
+                Registration Date: {{a.date_register}}
               </span>
 
             </p>
@@ -155,7 +141,7 @@
           <p class="text-sm text-blue-500 mt-2" *ngIf="a.date_register != null">
             <span
               class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
-              Approval Date: {{a.date_register}}
+              Registration Date: {{a.date_register}}
             </span>
 
           </p>
@@ -275,7 +261,7 @@
     </div>
 
   </div>
-  <div class="bg-white lg:col-span-9 sm:max-w-5xl">
+  <div class="bg-white lg:col-span-9 max-w-7xl">
     <router-outlet></router-outlet>
   </div>
 </div>

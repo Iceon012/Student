@@ -77,7 +77,7 @@ export class TuitionFeesComponent implements OnInit {
       gen_fee: 7221.30,
       lms_fee: 0.0,
       school_subsidy: 4114.85,
-      esc: (sector === 'Public') ? 17500.0 : 14000.0,
+       esc: 17500.00,
     };
     this.tuitionAndFees.push(baseTuition);
   }

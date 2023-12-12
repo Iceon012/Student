@@ -11,6 +11,7 @@ import { DataService } from '../data.service';
   styleUrls: ['./tracking.component.css'],
 })
 export class TrackingComponent implements OnInit {
+  studGrade = {grade:localStorage.getItem('')}
   studLRN = { LRN: localStorage.getItem('LRN') };
   studName = {name:localStorage.getItem('Name')}
 
@@ -37,6 +38,7 @@ export class TrackingComponent implements OnInit {
         tap((result: any) => {
           console.log(result);
           this.studData = result;
+          localStorage.setItem('studentData', JSON.stringify(this.studData));
           this.handleRouting();
         }),
         catchError((error) => {
@@ -65,11 +67,11 @@ export class TrackingComponent implements OnInit {
 
     else if (this.studData[0].date_register !== null) {
       this.route.navigate(['/home/tracking/studentprofile']);
-    } 
+    }
 
     else {
-        this.route.navigate(['/home/tracking/studentprofile']); 
-    } 
+        this.route.navigate(['/home/tracking/studentprofile']);
+    }
 }
 
 }

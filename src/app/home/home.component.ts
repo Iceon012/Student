@@ -36,7 +36,9 @@ export class HomeComponent {
       localStorage.removeItem('LRN')
       localStorage.removeItem('enrol_id')
       localStorage.removeItem('regdate')
-      this.route.navigate(['login'])
+      localStorage.removeItem('Name')
+
+      this.route.navigate(['/login'])
     // }
   }
 }

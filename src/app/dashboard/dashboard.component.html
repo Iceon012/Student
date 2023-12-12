@@ -2,7 +2,7 @@
     class="fixed top-0 left-0 z-40 w-64 h-screen border-r border-gray-200  pt-20 md:pt-0 transition-transform -translate-x-full bg-white sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
     aria-label="Sidebar">
     <div class="h-full px-3 pb-4 overflow-y-auto sm:mt-8 bg-white dark:bg-gray-800">
-        <p class="p-1 mb-2 text-center">
+        <p class="p-1 mb-2 text-center hidden sm:block">
             <span
                 class="bg-indigo-100 text-indigo-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-indigo-900 dark:text-indigo-300">
                 {{studLRN.id}}
@@ -11,17 +11,17 @@
         </p>
 
         <ul class="space-y-2 font-medium pl-5 pr-5">
-            <div class="items-center justify-center">
+            <div class="items-center justify-center hidden sm:block">
                 <img class="mx-auto" style="object-fit: cover; width: 160px; height: 160px; border-radius: 50%; border: 4px #f7f9fb solid; margin-bottom: 1rem;"
                 src="assets/logo.png" alt="user photo">
             </div>
 
-            <p class="p-1 mb-4 text-center">
+            <p class="p-1 mb-4 text-center hidden sm:block">
                 {{studName.name}}
             </p>
-
+            <br>
             <li>
-                <a href="#"
+                <a routerLink="s/ched"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
@@ -33,7 +33,7 @@
                 </a>
             </li>
             <li>
-                <a href="#"
+                <a
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -49,7 +49,7 @@
                 </a>
             </li>
             <li>
-                <a href="#"
+                <a routerLink="/requirements"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
@@ -62,7 +62,7 @@
                 </a>
             </li>
             <li>
-                <a href="#"
+                <a (click)="logout()"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
@@ -78,13 +78,13 @@
 
 <div class="sm:ml-64">
     <nav routerLink="/dash"
-        class="fixed top-0 z-50 w-full border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+        class="fixed top-0 z-50 w-full p-3 bg-blue-900 border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
         <div class="px-3 py-3 lg:px-5">
             <div class="flex items-center justify-between">
                 <div class="flex items-center justify-start">
                     <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar"
                         aria-controls="logo-sidebar" type="button" href="/home/" routerLink="/dash"
-                        class="inline-flex block sm:hidden items-center p-2 text-sm text-gray-800 rounded-lg dark:text-white dark:hover:bg-gray-100 dark:focus:ring-gray-100">
+                        class="inline-flex block sm:hidden items-center p-2 text-sm text-white rounded-lg dark:text-white dark:hover:bg-gray-100 dark:focus:ring-gray-100">
                         <span class="sr-only">Open sidebar</span>
                         <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
@@ -94,16 +94,16 @@
                         </svg>
                     </button>
                     <a class="flex ml-2 md:mr-24">
-                        <img src="assets/logo.png" class="h-8 mr-3" alt="FlowBite Logo" />
+                        <img src="assets/logo.png" class="h-10 mr-3" alt="FlowBite Logo" />
                         <span
-                            class="self-center text-sm hidden sm:block font-semibold sm:text-sm whitespace-nowrap text-gray-800">
+                            class="self-center text-medium hidden sm:block font-semibold whitespace-nowrap text-white">
                             Northern Luzon Adventist College
                             <b class="text-yellow-300">
                                 ACADEMY
                             </b>
                         </span>
                         <span
-                            class="self-center text-sm block sm:hidden font-semibold sm:text-sm whitespace-nowrap text-gray-900">
+                            class="self-center text-medium block sm:hidden font-semibold whitespace-nowrap text-white">
                             NLAC
                             <b class="text-yellow-300">
                                 ACADEMY
@@ -157,9 +157,12 @@
             </div>
         </div>
     </nav>
-    <router-outlet></router-outlet>
+    <div class="p-5 mt-5">
+      <router-outlet></router-outlet>
+    </div>
+
     <!-- <div class="p-4 rounded-lg dark:border-gray-700 mt-14">
-        
+
         <div class="grid grid-cols-3 gap-4 mb-4">
             <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
                 <p class="text-2xl text-gray-400 dark:text-gray-500">

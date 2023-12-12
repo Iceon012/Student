@@ -1,0 +1,28 @@
+.img {
+  object-fit: cover;
+  width: 180px;
+  height: 180px;
+  border-radius: 8px;
+}
+
+.img2 {
+  object-fit: cover;
+  width: 380px;
+  height: 380px;
+  border-radius: 8px;
+}
+
+.progress {
+  background-color: #f3f3f3;  /* Light gray background for the progress bar container */
+  border-radius: 5px;         /* Rounded corners for the progress bar container */
+  height: 30px;               /* Fixed height for the progress bar container */
+  overflow: hidden;           /* To ensure the inner bar doesn't spill out */
+}
+
+.progress-bar {
+  background-color: #007bff; /* Blue background for the filled part of the progress bar */
+  color: white;              /* White text color for the progress value */
+  font-weight: bold;         /* Bold font for the progress value */
+  text-align: center;        /* Center the progress value horizontally */
+  line-height: 30px;         /* Vertically center the progress value, matches the container's height */
+}

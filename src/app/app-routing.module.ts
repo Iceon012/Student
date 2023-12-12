@@ -9,18 +9,10 @@ import { HomeComponent } from './home/home.component';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
 import { EnrollmentDataComponent } from './enrollment-data/enrollment-data.component';
 import { TuitionFeesComponent } from './tuition-fees/tuition-fees.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { SubjectComponent } from './subject/subject.component';
 import { SignupComponent } from './signup/signup.component';
 import { ReferenceComponent } from './reference/reference.component';
-import { authGuard } from './auth.guard';
-import { GradesComponent } from './grades/grades.component';
-import { RosterComponent } from './roster/roster.component';
+import { authGuard } from './authenticate/auth.guard';
 import { ApprovedComponent } from './approved/approved.component';
-import { RequirementsComponent } from './requirements/requirements.component';
-import { BalanceComponent } from './balance/balance.component';
-import { ScheduleComponent } from './schedule/schedule.component';
-import { AccountComponent } from './account/account.component';
 
 const routes: Routes = [
   { path: 'enrollment', component: EnrollmentComponent },
@@ -51,24 +43,6 @@ const routes: Routes = [
         ],
       },
       { path: '', redirectTo: 'tracking', pathMatch: 'full' },
-    ]
-  },
-  {
-    path: 'dash', component:DashboardComponent,
-    canActivate: [authGuard],
-    children: [
-      {path: 'subject', component:SubjectComponent},
-      { path: 'grade', component:GradesComponent},
-      { path: 'roster', component: RosterComponent},
-      { path: 'requirements', component:RequirementsComponent},
-      { path: 'account', component:AccountComponent},
-      { path: 'balance', component:BalanceComponent},
-      {path: 'sched', component:ScheduleComponent},
-      {
-        path: '',
-        redirectTo: 'sched',
-        pathMatch: 'full',
-      }
     ]
   },
   { path: '', redirectTo: 'enrollment', pathMatch: 'full' },

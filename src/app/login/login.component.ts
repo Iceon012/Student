@@ -32,13 +32,13 @@ export class LoginComponent {
       if(result.error == "err") {
         this.err = !this.err
       }
-      else if(result.regdate != null) {
-        this.err = false
-        localStorage.setItem("LRN",result.lrn);
-        localStorage.setItem("regdate",result.regdate);
-        localStorage.setItem("Name",result.name);
-        this.route.navigate(['/dash']);
-      }
+      // else if(result.regdate != null) {
+      //   this.err = false
+      //   localStorage.setItem("LRN",result.lrn);
+      //   localStorage.setItem("regdate",result.regdate);
+      //   localStorage.setItem("Name",result.name);
+      //   this.route.navigate(['/dash']);
+      // }
       else {
         this.err = false
         localStorage.setItem("Name",result.name);
